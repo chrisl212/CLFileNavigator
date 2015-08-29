@@ -34,6 +34,20 @@
                ReferencedContainer = "container:CLFileNavigator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AB42CDD31B842DD6009E3A6D"
+               BuildableName = "CLFileNavigatorKitTests.xctest"
+               BlueprintName = "CLFileNavigatorKitTests"
+               ReferencedContainer = "container:CLFileNavigator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "AB42CDB41B842DAB009E3A6D"
                BuildableName = "CLFileNavigatorTests.xctest"
                BlueprintName = "CLFileNavigatorTests"
+               ReferencedContainer = "container:CLFileNavigator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AB42CDD31B842DD6009E3A6D"
+               BuildableName = "CLFileNavigatorKitTests.xctest"
+               BlueprintName = "CLFileNavigatorKitTests"
                ReferencedContainer = "container:CLFileNavigator.xcodeproj">
             </BuildableReference>
          </TestableReference>

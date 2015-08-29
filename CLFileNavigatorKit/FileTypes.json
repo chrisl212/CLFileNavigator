@@ -1,0 +1,10 @@
+[
+ { "name" : "Image File", "extension" : ["jpg", "jpeg", "png", "ico", "gif", "tiff"], "uti" : ["public.image"], "mime" : [], "type" : 1 },
+ { "name" : "Web File", "extension" : ["html", "htm"], "uti" : [], "mime" : ["text/html"], "type" : 2 },
+ { "name" : "PDF File", "extension" : ["pdf"], "uti" : [], "mime" : [], "type" : 3 },
+ { "name" : "Compressed File", "extension" : ["zip", "gz", "tar", "bz2", "xz"], "uti" : [], "mime" : [], "type" : 4 },
+ { "name" : "Movie File", "extension" : ["mov", "mp4", "3gp"], "uti" : ["public.movie"], "mime" : [], "type" : 6 },
+ { "name" : "Music File", "extension" : ["mp3", "aaf", "caf", "aac"], "uti" : ["public.audio"], "mime" : [], "type" : 8 },
+ { "name" : "Rich Text", "extension" : ["rtf", "doc"], "uti" : ["org.openxmlformats.wordprocessingml.document"], "mime" : [], "type" : 9 },
+ { "name" : "Text File", "extension" : ["txt"], "uti" : ["public.text"], "mime" : [], "type" : 0 }
+]
