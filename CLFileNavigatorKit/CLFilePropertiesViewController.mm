@@ -177,7 +177,7 @@
         textField.text = cellDictionary[@"value"];
         
         SEL selector = NSSelectorFromString(cellDictionary[@"selector"]);
-        [textField addTarget:self action:selector forControlEvents:UIControlEventEditingDidEndOnExit];
+        [textField addTarget:self action:selector forControlEvents:UIControlEventEditingDidEnd];
     }
     else
     {

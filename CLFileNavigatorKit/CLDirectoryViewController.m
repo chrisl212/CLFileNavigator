@@ -264,11 +264,12 @@ NSString *const CLDirectoryViewControllerRefreshNotification = @"shouldRefresh";
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createFile)];
         [self.navigationController setToolbarHidden:NO animated:YES];
         
-        UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteFiles)];
+        UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteFiles)];
         UIBarButtonItem *flex1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *compress = [[UIBarButtonItem alloc] initWithTitle:@"Zip" style:UIBarButtonItemStylePlain target:self action:@selector(compressFiles)];
+        UIBarButtonItem *compress = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"archive-50.png"] style:UIBarButtonItemStylePlain target:self action:@selector(compressFiles)];
         UIBarButtonItem *flex2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *bluetooth = [[UIBarButtonItem alloc] initWithTitle:@"BT" style:UIBarButtonItemStylePlain target:self action:@selector(bluetooth)];
+        UIBarButtonItem *bluetooth = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bluetooth-50.png"] style:UIBarButtonItemStylePlain target:self action:@selector(bluetooth)];
+        
         UIBarButtonItem *flex3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         UIBarButtonItem *copyPaste = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(copyPaste)];
         

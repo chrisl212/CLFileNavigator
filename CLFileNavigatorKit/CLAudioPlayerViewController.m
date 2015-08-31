@@ -76,12 +76,19 @@
     return [NSString stringWithFormat:@"%ld:%02ld", (long)minutes, (long)seconds];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)openFileProperties
 {
-    [super viewWillAppear:animated];
+    CLFilePropertiesViewController *propertiesViewController = [[CLFilePropertiesViewController alloc] initWithFilePath:self.currentItem.filePath];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:propertiesViewController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
     [self becomeFirstResponder];
-
+    
     self.volumeSlider.backgroundColor = [UIColor clearColor];
     [self.timeSlider addTarget:self action:@selector(seek) forControlEvents:UIControlEventValueChanged];
     
@@ -90,13 +97,13 @@
     
     [self.fastForwardButton addGestureRecognizer:fastForwardLongPress];
     [self.rewindButton addGestureRecognizer:rewindLongPress];
-
+    
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 10), NO, 0.0);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
     CGContextFillRect(context, CGRectMake(0, 0, 1, 10));
-
+    
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -108,26 +115,8 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(openFileProperties)];
-}
-
-- (void)openFileProperties
-{
-    CLFilePropertiesViewController *propertiesViewController = [[CLFilePropertiesViewController alloc] initWithFilePath:self.currentItem.filePath];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:propertiesViewController];
-    [self presentViewController:navController animated:YES completion:nil];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
+    self.navigationController.navigationBar.translucent = NO;
     [self updateAudioPlayer];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

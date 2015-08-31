@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB159D5C1B918EA5000D12F4 /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB159D5B1B918EA5000D12F4 /* libtag.a */; };
-		AB159D5D1B919094000D12F4 /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB159D5B1B918EA5000D12F4 /* libtag.a */; };
+		AB38E9AC1B939C0500F73C18 /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB38E9AB1B939C0500F73C18 /* libtag.a */; };
+		AB38E9AD1B939C0500F73C18 /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB38E9AB1B939C0500F73C18 /* libtag.a */; };
+		AB38E9C11B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */; };
+		AB38E9C21B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */; };
+		AB38E9CB1B93FF4500F73C18 /* archive-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */; };
+		AB38E9CC1B93FF4500F73C18 /* archive-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */; };
 		AB42CDA21B842DAB009E3A6D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB42CDA11B842DAB009E3A6D /* main.mm */; };
 		AB42CDA51B842DAB009E3A6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42CDA41B842DAB009E3A6D /* AppDelegate.m */; };
 		AB42CDAD1B842DAB009E3A6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB42CDAC1B842DAB009E3A6D /* Images.xcassets */; };
@@ -160,7 +164,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AB159D5B1B918EA5000D12F4 /* libtag.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtag.a; sourceTree = "<group>"; };
+		AB38E9AB1B939C0500F73C18 /* libtag.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtag.a; path = "../../Downloads/taglib-1.9.1/taglib/Debug-iphoneos/libtag.a"; sourceTree = "<group>"; };
+		AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bluetooth-50@2x.png"; sourceTree = "<group>"; };
+		AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archive-50@2x.png"; sourceTree = "<group>"; };
 		AB42CD9C1B842DAB009E3A6D /* CLFileNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLFileNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB42CDA01B842DAB009E3A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB42CDA11B842DAB009E3A6D /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
@@ -270,9 +276,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB159D5C1B918EA5000D12F4 /* libtag.a in Frameworks */,
 				ABBFBD3C1B878CE500A5453F /* libz.dylib in Frameworks */,
 				ABA1F1301B8CC2DB00DCD901 /* MultipeerConnectivity.framework in Frameworks */,
+				AB38E9AC1B939C0500F73C18 /* libtag.a in Frameworks */,
 				AB42CE191B84D5A4009E3A6D /* MobileCoreServices.framework in Frameworks */,
 				AB42CDE11B842DD6009E3A6D /* CLFileNavigatorKit.framework in Frameworks */,
 			);
@@ -283,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB8AFB0D1B91032F00246EBC /* libstdc++.6.dylib in Frameworks */,
-				AB159D5D1B919094000D12F4 /* libtag.a in Frameworks */,
+				AB38E9AD1B939C0500F73C18 /* libtag.a in Frameworks */,
 				AB8AFB0A1B91030900246EBC /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +354,8 @@
 				AB42CDF41B843522009E3A6D /* CLFileCell.xib */,
 				AB42CDEA1B842E0B009E3A6D /* CLDirectoryViewController.h */,
 				AB42CDEB1B842E0B009E3A6D /* CLDirectoryViewController.m */,
+				AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */,
+				AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */,
 				AB667B011B90D6860043E285 /* CLSettingsViewController.h */,
 				AB667B021B90D6860043E285 /* CLSettingsViewController.m */,
 				AB6A5BCA1B8E6B560084A3C9 /* CLFileTransfer.h */,
@@ -387,7 +395,7 @@
 		AB667B121B90F8F40043E285 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AB159D5B1B918EA5000D12F4 /* libtag.a */,
+				AB38E9AB1B939C0500F73C18 /* libtag.a */,
 				AB667B541B90FE0F0043E285 /* libstdc++.6.dylib */,
 				ABA1F12F1B8CC2DB00DCD901 /* MultipeerConnectivity.framework */,
 				ABBFBD3B1B878CE400A5453F /* libz.dylib */,
@@ -643,8 +651,10 @@
 				AB42CE211B84DA0F009E3A6D /* mp3.ico in Resources */,
 				AB42CE221B84DA0F009E3A6D /* pdf.ico in Resources */,
 				AB42CE231B84DA0F009E3A6D /* zip.ico in Resources */,
+				AB38E9C11B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */,
 				AB42CE241B84DA0F009E3A6D /* pic.ico in Resources */,
 				AB42CE251B84DA0F009E3A6D /* rtf.ico in Resources */,
+				AB38E9CB1B93FF4500F73C18 /* archive-50@2x.png in Resources */,
 				ABBFBCB31B85321800A5453F /* transparency@2x.jpg in Resources */,
 				AB42CE261B84DA0F009E3A6D /* txt.ico in Resources */,
 				AB42CE271B84DA0F009E3A6D /* unk.ico in Resources */,
@@ -665,6 +675,7 @@
 				ABBFBCB21B85302900A5453F /* transparency@2x.jpg in Resources */,
 				AB42CE121B84D552009E3A6D /* pdf.ico in Resources */,
 				AB42CE111B84D552009E3A6D /* mp3.ico in Resources */,
+				AB38E9CC1B93FF4500F73C18 /* archive-50@2x.png in Resources */,
 				ABBFBCD01B86332500A5453F /* pause@2x.png in Resources */,
 				AB42CE171B84D552009E3A6D /* zip.ico in Resources */,
 				AB42CE0E1B84D552009E3A6D /* dir.ico in Resources */,
@@ -677,6 +688,7 @@
 				ABBFBCCF1B86332500A5453F /* fast-forward@2x.png in Resources */,
 				AB42CE161B84D552009E3A6D /* unk.ico in Resources */,
 				ABBFBCBD1B8620A100A5453F /* CLAudioPlayerViewController.xib in Resources */,
+				AB38E9C21B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */,
 				AB42CDF71B843522009E3A6D /* CLFileCell.xib in Resources */,
 				AB42CE151B84D552009E3A6D /* txt.ico in Resources */,
 				AB42CDF91B843676009E3A6D /* FileTypes.json in Resources */,
@@ -864,6 +876,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -893,6 +906,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -929,11 +943,13 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -963,10 +979,12 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

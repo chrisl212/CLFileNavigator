@@ -97,7 +97,13 @@
 
 - (void)save
 {
-    [self.textView.text writeToFile:self.currentItem.filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    if (self.currentItem.fileType == CLFileTypeText)
+        [self.textView.text writeToFile:self.currentItem.filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    else if (self.currentItem.fileType == CLFileTypeRichText)
+    {
+        NSData *RTFData = [self.textView.attributedText dataFromRange:NSMakeRange(0, self.textView.attributedText.length) documentAttributes:@{NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType} error:nil];
+        [RTFData writeToFile:self.currentItem.filePath atomically:YES];
+    }
     [self dismiss];
 }
 
@@ -127,7 +133,10 @@
     self.currentItem = self.items[idx];
     self.navigationItem.title = self.currentItem.fileName;
     
-    self.textView.text = [NSString stringWithContentsOfFile:self.currentItem.filePath encoding:NSUTF8StringEncoding error:nil];
+    if (self.currentItem.fileType == CLFileTypeRichText)
+        self.textView.attributedText = [[NSAttributedString alloc] initWithFileURL:self.currentItem.fileURL options:@{NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType} documentAttributes:nil error:nil];
+    else
+        self.textView.text = [NSString stringWithContentsOfFile:self.currentItem.filePath encoding:NSUTF8StringEncoding error:nil];
 }
 
 @end

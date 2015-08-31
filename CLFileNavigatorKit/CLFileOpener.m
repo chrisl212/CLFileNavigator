@@ -125,11 +125,7 @@
         }
             
         case CLFileTypeRichText:
-        {
-            viewController = [[CLWebViewController alloc] initWithFileAtPath:path];
-            break;
-        }
-            
+            //fall through to next
         case CLFileTypeText:
         {
             NSString *directoryPath = path.stringByDeletingLastPathComponent;
@@ -144,7 +140,7 @@
             
             NSMutableArray *textFiles = [NSMutableArray array];
             for (CLFile *f in directoryFiles)
-                if (f.fileType == CLFileTypeText)
+                if (f.fileType == CLFileTypeText || f.fileType == CLFileTypeRichText)
                     [textFiles addObject:f];
             CLFile *file = [CLFile fileWithPath:path error:nil];
             if (![textFiles containsObject:file])
