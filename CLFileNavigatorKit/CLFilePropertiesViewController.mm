@@ -11,6 +11,42 @@
 #import "CLAudioItem.h"
 #import <AVFoundation/AVFoundation.h>
 #import <fileref.h>
+#import "NSFileManager+CLFile.h"
+
+class fraction
+{
+    long num;
+    long den;
+    
+public:
+    fraction():num(0), den(0)
+    {}
+    
+    fraction(long n, long d):num(n), den(d)
+    {}
+    
+    fraction reduce()
+    {
+        fraction retval(num, den);
+        long u = num, v = den, temp;
+        
+        while (v != 0)
+        {
+            temp = u % v;
+            u = v;
+            v = temp;
+        }
+        retval.num /= u;
+        retval.den /= u;
+        return retval;
+    }
+    
+    long numerator()
+    { return num; }
+    
+    long denominator()
+    { return den; }
+};
 
 @implementation CLFilePropertiesViewController
 
@@ -35,11 +71,34 @@
         
         switch (file.fileType)
         {
+            case CLFileTypeDirectory:
+            {
+                [self.tableViewItems removeLastObject];
+                NSArray *directoryContents = file.directoryContents;
+                NSString *numberOfItems = [NSString stringWithFormat:@"%ld", (unsigned long)directoryContents.count];
+                NSDictionary *directoryItemsInfo = @{@"name" : @"Items", @"value" : numberOfItems, @"type" : @"label"};
+                CLFileSize totalSize = 0;
+                for (CLFile *f in directoryContents)
+                {
+                    totalSize += f.fileSize;
+                }
+                NSDictionary *directorySizeInfo = @{@"name" : @"Total Size", @"value" : [[NSFileManager defaultManager] formattedSizeStringForBytes:totalSize], @"type" : @"label"};
+                
+                [self.tableViewItems addObject:directoryItemsInfo];
+                [self.tableViewItems addObject:directorySizeInfo];
+                break;
+            }
             case CLFileTypeImage:
             {
                 UIImage *image = [UIImage imageWithContentsOfFile:file.filePath];
                 NSString *dimensionsString = [NSString stringWithFormat:@"%.0Fx%.0F", image.size.width, image.size.height];
                 [self.tableViewItems addObject:@{@"name" : @"Image Dimensions", @"value" : dimensionsString, @"type" : @"label"}];
+                
+                fraction raw((long)image.size.width, (long)image.size.height);
+                fraction aspect = raw.reduce();
+                NSString *aspectRatio = [NSString stringWithFormat:@"%ld:%ld", aspect.numerator(), aspect.denominator()];
+                [self.tableViewItems addObject:@{@"name" : @"Aspect Ratio", @"value" : aspectRatio, @"type" : @"label"}];
+                
                 break;
             }
                 
@@ -70,7 +129,6 @@
             default:
                 break;
         }
-
     }
     return self;
 }
@@ -104,12 +162,6 @@
     NSString *newFilePath = [self.file.filePath.stringByDeletingLastPathComponent stringByAppendingPathComponent:newFileName];
     [[NSFileManager defaultManager] moveItemAtPath:self.file.filePath toPath:newFilePath error:nil];
     self.file = [CLFile fileWithPath:newFilePath error:nil];
-}
-
-- (void)changeTag:(NSString *)type value:(NSString *)val
-{
-
-
 }
 
 - (void)changeArtist:(UITextField *)sender
@@ -158,6 +210,7 @@
     NSDictionary *cellDictionary = self.tableViewItems[indexPath.row];
     
     cell.textLabel.text = cellDictionary[@"name"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     NSString *cellType = cellDictionary[@"type"];
     
@@ -178,6 +231,7 @@
         
         SEL selector = NSSelectorFromString(cellDictionary[@"selector"]);
         [textField addTarget:self action:selector forControlEvents:UIControlEventEditingDidEnd];
+        [textField addTarget:textField action:@selector(resignFirstResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
     }
     else
     {

@@ -17,6 +17,7 @@
 #import "CLAudioItem.h"
 #import "ACUnzip.h"
 #import "CLTextEditorViewController.h"
+#import "CLMoviePlayerViewController.h"
 
 @implementation CLFileOpener
 
@@ -58,7 +59,10 @@
             {
                 if (file.fileType == CLFileTypeImage)
                 {
-                    NSDictionary *dict = @{CLImageFileNameKey: file.fileName, CLImageImageKey: [UIImage imageWithContentsOfFile:file.filePath]};
+                    UIImage *image = [UIImage imageWithContentsOfFile:file.filePath];
+                    if (!image)
+                        image = [[UIImage alloc] init];
+                    NSDictionary *dict = @{CLImageFileNameKey: file.fileName, CLImageImageKey: image};
                     [imageObjects addObject:dict];
                     if ([file.filePath isEqualToString:path])
                         pathInArray = YES;
@@ -87,8 +91,10 @@
             
         case CLFileTypeMovie:
         {
-            MPMoviePlayerViewController *moviePlayerController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
-            [vc presentViewController:moviePlayerController animated:YES completion:nil];
+            //MPMoviePlayerViewController *moviePlayerController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
+            CLMoviePlayerViewController *moviePlayerController = [[CLMoviePlayerViewController alloc] initWithFilePath:path];
+            UINavigationController *moviePlayerNavController = [[UINavigationController alloc] initWithRootViewController:moviePlayerController];
+            [vc presentViewController:moviePlayerNavController animated:YES completion:nil];
             return;
         }
             
@@ -179,7 +185,7 @@
             
         case CLFileTypeZip:
         {
-            ACUnzipFileType fileType;
+            ACUnzipFileType fileType = ACUnzipFileTypeZip;
             
             NSString *fileExtension = path.pathExtension;
             

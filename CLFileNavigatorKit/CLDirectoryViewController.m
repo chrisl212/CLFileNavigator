@@ -16,6 +16,9 @@
 #import "CLFileTransfer.h"
 #import "CLFilePropertiesViewController.h"
 #import "CLSettingsViewController.h"
+#import "CLIconPackViewController.h"
+#import "CLAudioItem.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define COPYPASTE_ACTIONSHEET 0
 #define FILEOPTIONS_ACTIONSHEET 1
@@ -72,8 +75,14 @@ NSString *const CLDirectoryViewControllerRefreshNotification = @"shouldRefresh";
 - (void)openSettings
 {
     CLSettingsViewController *settingsViewController = [[CLSettingsViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
-    [self presentViewController:navController animated:YES completion:nil];
+    UINavigationController *settingsNavController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+    CLIconPackViewController *iconPackViewController = [[CLIconPackViewController alloc] init];
+    UINavigationController *iconNavController = [[UINavigationController alloc] initWithRootViewController:iconPackViewController];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[settingsNavController, iconNavController];
+    
+    [self presentViewController:tabBarController animated:YES completion:nil];
 }
 
 #pragma mark - Initialization
@@ -195,8 +204,91 @@ NSString *const CLDirectoryViewControllerRefreshNotification = @"shouldRefresh";
         [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     }
     
-    cell.fileLastModifiedDateLabel.text = [dateFormatter stringFromDate:file.lastModifiedDate];
-    cell.fileIconImageView.image = [UIImage iconForFileType:file.fileType];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"date"] || [[[NSUserDefaults standardUserDefaults] objectForKey:@"date"] isEqualToString:@"Modification"])
+        cell.fileLastModifiedDateLabel.text = [dateFormatter stringFromDate:file.lastModifiedDate];
+    else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"date"] isEqualToString:@"Creation"])
+        cell.fileLastModifiedDateLabel.text = [dateFormatter stringFromDate:file.creationDate]; //for use with myDownload
+    
+    if ((file.fileType != CLFileTypeImage && file.fileType != CLFileTypeMusic && file.fileType != CLFileTypeMovie) || ![[NSUserDefaults standardUserDefaults] boolForKey:@"thumbnails"])
+        cell.fileIconImageView.image = [UIImage iconForFileType:file.fileType];
+    else if (file.fileType == CLFileTypeMovie)
+    {
+        dispatch_async(dispatch_queue_create("com.ac.table", NULL), ^{
+            UIImage *thumbnail = nil;
+            NSURL *url = [NSURL fileURLWithPath:file.filePath];
+            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
+            AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+            generator.appliesPreferredTrackTransform = YES;
+            NSError *error = nil;
+            CMTime time = CMTimeMake(1, 1); // 3/1 = 3 second(s)
+            CGImageRef imgRef = [generator copyCGImageAtTime:time actualTime:nil error:&error];
+            if (error != nil)
+                NSLog(@"%@: %@", self, error);
+            thumbnail = [[UIImage alloc] initWithCGImage:imgRef];
+            CGImageRelease(imgRef);
+            
+            UIImage *image = thumbnail;
+            if (!thumbnail)
+                image = [UIImage iconForFileType:file.fileType];
+            
+            if (image) //decompression (speed)
+            {
+                UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+                
+                [image drawAtPoint:CGPointZero];
+                
+                image = UIGraphicsGetImageFromCurrentImageContext();
+                
+                UIGraphicsEndImageContext();
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.fileIconImageView.image = image;
+            });
+        });
+    }
+    else if (file.fileType == CLFileTypeImage)
+    {
+        dispatch_async(dispatch_queue_create("com.ac.table", NULL), ^{
+            UIImage *image = [UIImage imageWithContentsOfFile:file.filePath];
+            if (!image)
+                image = [UIImage iconForFileType:file.fileType];
+            if (image) //decompression (speed)
+            {
+                UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+                
+                [image drawAtPoint:CGPointZero];
+                
+                image = UIGraphicsGetImageFromCurrentImageContext();
+                
+                UIGraphicsEndImageContext();
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.fileIconImageView.image = image;
+            });
+        });
+    }
+    else if (file.fileType == CLFileTypeMusic)
+    {
+        dispatch_async(dispatch_queue_create("com.ac.table", NULL), ^{
+            CLAudioItem *audioItem = [[CLAudioItem alloc] initWithFile:file];
+            UIImage *image = audioItem.albumArtworkImage;
+            if ([audioItem.albumArtworkImage isEqual:[UIImage imageNamed:@"noart.png"]])
+                image = [UIImage iconForFileType:file.fileType];
+            if (image) //decompression (speed)
+            {
+                UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+                
+                [image drawAtPoint:CGPointZero];
+                
+                image = UIGraphicsGetImageFromCurrentImageContext();
+                
+                UIGraphicsEndImageContext();
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.fileIconImageView.image = image;
+            });
+        });
+    }
     
     return cell;
 }
@@ -382,8 +474,9 @@ NSString *const CLDirectoryViewControllerRefreshNotification = @"shouldRefresh";
 {
     ACAlertView *alertView = [ACAlertView alertWithTitle:@"New Item" style:ACAlertViewStyleTextFieldAndPickerView delegate:self buttonTitles:@[@"Cancel", @"Done"]];
     alertView.pickerViewItems = @[@"File", @"Folder"];
-    alertView.textField.placeholder = @"Item name";
+    alertView.textField.text = @"Item name";
     [alertView show];
+    [alertView.textField selectAll:nil];
 }
 
 #pragma mark - Search Results

@@ -34,16 +34,17 @@
         switch (style)
         {
             case ACAlertViewStyleTextView:
-                alertFrame = CGRectMake(0, 0, 200, 175);
+                alertFrame = CGRectMake(0, 0, 250, 175);
                 labelCenter = CGPointMake(CGRectGetMidX(alertFrame), 20);
                 alignment = NSTextAlignmentCenter;
                 self.frame = alertFrame;
                 
-                self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 190, 90)];
+                self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 240, 90)];
                 self.textView.center = self.center;
                 self.textView.editable = NO;
                 self.textView.textColor = [UIColor whiteColor];
                 self.textView.backgroundColor = [UIColor clearColor];
+                self.textView.font = [UIFont systemFontOfSize:18.0];
                 [self addSubview:self.textView];
                 break;
                 
@@ -228,6 +229,8 @@
         [self.delegate alertViewDidAppear:self];
     self.pickerView.userInteractionEnabled = YES;
     [self becomeFirstResponder];
+    if (self.textField)
+        [self.textField becomeFirstResponder];
 }
 
 - (void)hide

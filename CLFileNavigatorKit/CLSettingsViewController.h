@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSMutableArray *tableViewItems;
 @property (strong, nonatomic) NSMutableArray *fileTypesArray;
 
+- (void)dismiss;
+
 @end
 
 @interface CLTypesEditorController : UITableViewController

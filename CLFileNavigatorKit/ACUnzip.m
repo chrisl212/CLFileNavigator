@@ -251,7 +251,6 @@ bool bzip2_unzip(const char *in_file, char *out_file_name)
             filePath = [filePath stringByAppendingString:@".1"];
         [[NSFileManager defaultManager] createFileAtPath:[path stringByAppendingPathComponent:filePath] contents:data attributes:@{NSFileModificationDate: date}];
         unzCloseCurrentFile(zip);
-        
     } while (unzGoToNextFile(zip) != UNZ_END_OF_LIST_OF_FILE);
     unzClose(zip);
     

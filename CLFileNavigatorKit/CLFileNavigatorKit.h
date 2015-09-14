@@ -35,3 +35,10 @@ FOUNDATION_EXPORT const unsigned char CLFileNavigatorKitVersionString[];
 #import <CLFileNavigatorKit/NSFileManager+CLFile.h>
 #import <CLFileNavigatorKit/NSFileManager+Tar.h>
 #import <CLFileNavigatorKit/UIImage+CLFile.h>
+#import <CLFileNavigatorKit/crypt.h>
+#import <CLFileNavigatorKit/ioapi.h>
+#import <CLFileNavigatorKit/ioapi_buf.h>
+#import <CLFileNavigatorKit/ioapi_mem.h>
+#import <CLFileNavigatorKit/unzip.h>
+#import <CLFileNavigatorKit/zip.h>
+#import <CLFileNavigatorKit/bzlib.h>

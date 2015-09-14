@@ -31,6 +31,7 @@
             NSDictionary *tableViewItemDictionary = @{@"name" : fileTypeDictionary[@"name"], @"items" : @[@{@"name" : @"UTIs", @"items" : fileTypeDictionary[@"uti"]}, @{@"name" : @"Extensions", @"items" : fileTypeDictionary[@"extension"]}, @{@"name" : @"MIME Types", @"items" : fileTypeDictionary[@"mime"]}]};
             [self.tableViewItems addObject:tableViewItemDictionary];
         }
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"File Types" image:[UIImage imageNamed:@"file-50.png"] selectedImage:[UIImage imageNamed:@"file_filled-50.png"]];
     }
     return self;
 }

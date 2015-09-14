@@ -8,6 +8,7 @@
 
 #import "CLWebViewController.h"
 #import "CLFile.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @implementation CLWebViewController
 
@@ -23,12 +24,16 @@
         UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
         webView.scalesPageToFit = YES;
         
-        //TODO: decide on which one - First causes memory issues, second doesn't open files without proper extensions
+        //TODO: decide on which one - First causes memory issues (FALSE), second doesn't open files without proper extensions
         
-        //NSData *fileData = [NSData dataWithContentsOfFile:path];
-        //[webView loadData:fileData MIMEType:nil textEncodingName:@"utf-8" baseURL:nil];
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]];
-        [webView loadRequest:request];
+        NSString *pathExtension = path.pathExtension;
+        NSString *UTI = (__bridge NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)pathExtension, NULL);
+        NSString *MIME = (__bridge NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)UTI, kUTTagClassMIMEType);
+        
+        NSData *fileData = [NSData dataWithContentsOfFile:path];
+        [webView loadData:fileData MIMEType:MIME textEncodingName:@"utf-8" baseURL:nil];
+        //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]];
+        //[webView loadRequest:request];
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
         self.navigationItem.title = path.lastPathComponent;

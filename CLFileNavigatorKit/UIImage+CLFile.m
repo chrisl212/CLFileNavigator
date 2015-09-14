@@ -7,11 +7,24 @@
 //
 
 #import "UIImage+CLFile.h"
+#import "ACUnzip.h"
 
 @implementation UIImage (CLFile)
 
 + (UIImage *)iconForFileType:(CLFileType)fileType
 {
+    NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+
+    NSString *iconsDirectoryPath = [cachesDirectory stringByAppendingPathComponent:[[NSUserDefaults standardUserDefaults] objectForKey:@"IconsPath"]];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"IconsPath"] || ![[NSFileManager defaultManager] fileExistsAtPath:iconsDirectoryPath])
+    {
+        iconsDirectoryPath = [cachesDirectory stringByAppendingPathComponent:@"Icons/Default Icons"];
+        [[NSFileManager defaultManager] createDirectoryAtPath:iconsDirectoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+        NSString *defaultIconsPath = [[NSBundle mainBundle] pathForResource:@"DefaultIcons" ofType:@"zip"];
+        [ACUnzip decompressFiles:defaultIconsPath toDirectory:[cachesDirectory stringByAppendingPathComponent:@"Icons"] fileType:ACUnzipFileTypeZip];
+        [[NSUserDefaults standardUserDefaults] setObject:@"Icons/Default Icons" forKey:@"IconsPath"];
+    }
+    
     NSString *fileName;
     
     switch (fileType)
@@ -60,7 +73,7 @@
             fileName = @"unk";
             break;
     }
-    NSString *iconFilePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"ico"]; //TODO: customizable icons
+    NSString *iconFilePath = [iconsDirectoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", fileName, ([[NSFileManager defaultManager] fileExistsAtPath:[iconsDirectoryPath stringByAppendingPathComponent:@"dir.ico"]]) ? @"ico" : @"png"]];
     return [UIImage imageWithContentsOfFile:iconFilePath];
 }
 

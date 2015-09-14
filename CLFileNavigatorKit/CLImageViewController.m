@@ -34,6 +34,9 @@ NSString *const CLImageImageKey = @"img";
 {
     if (self = [super init])
     {
+        self.navigationController.navigationBar.translucent = NO;
+        self.navigationController.toolbar.translucent = NO;
+        
         UIImage *transparency = [UIImage imageNamed:@"transparency.jpg"];
         self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
         self.scrollView.contentSize = self.view.frame.size;
@@ -64,7 +67,33 @@ NSString *const CLImageImageKey = @"img";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleBars)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoom)];
+    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:doubleTapGestureRecognizer];
+    
+    UISwipeGestureRecognizer *previousImageGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(previousImage)];
+    previousImageGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:previousImageGestureRecognizer];
+    
+    UISwipeGestureRecognizer *nextImageGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(nextImage)];
+    nextImageGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:nextImageGestureRecognizer];
+    
+}
+
+- (void)zoom
+{
+    self.scrollView.zoomScale = self.scrollView.zoomScale+1.0;
+}
+
+- (void)toggleBars
+{
+    BOOL hidden = (self.navigationController.isNavigationBarHidden) ? NO : YES;
+    [self.navigationController setToolbarHidden:hidden animated:YES];
+    [self.navigationController setNavigationBarHidden:hidden animated:YES];
 }
 
 - (void)changeImageToIndex:(NSInteger)idx
