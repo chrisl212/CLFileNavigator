@@ -45,6 +45,7 @@
                 self.textView.textColor = [UIColor whiteColor];
                 self.textView.backgroundColor = [UIColor clearColor];
                 self.textView.font = [UIFont systemFontOfSize:18.0];
+                self.textView.textAlignment = NSTextAlignmentCenter;
                 [self addSubview:self.textView];
                 break;
                 

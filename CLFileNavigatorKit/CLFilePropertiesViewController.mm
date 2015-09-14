@@ -11,6 +11,9 @@
 #import "CLAudioItem.h"
 #import <AVFoundation/AVFoundation.h>
 #import <fileref.h>
+#import <id3v2tag.h>
+#import <mpegfile.h>
+#import <attachedpictureframe.h>
 #import "NSFileManager+CLFile.h"
 
 class fraction
@@ -49,6 +52,9 @@ public:
 };
 
 @implementation CLFilePropertiesViewController
+{
+    NSDateFormatter *dateFormatter;
+}
 
 - (id)initWithFile:(CLFile *)file
 {
@@ -56,79 +62,10 @@ public:
     {
         self.file = file;
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
         
-        NSString *creationDateString = [dateFormatter stringFromDate:file.creationDate];
-        NSString *modifiedDateString = [dateFormatter stringFromDate:file.lastModifiedDate];
-        
-        self.tableViewItems =
-    @[@{@"name" : @"File Name", @"value" : self.file.fileName, @"type" : @"field", @"selector" : @"renameFile:"},
-    @{@"name" : @"Creation Date", @"value" : creationDateString, @"type" : @"label"},
-    @{@"name" : @"Last Modified", @"value" : modifiedDateString, @"type" : @"label"},
-    @{@"name" : @"File Size", @"value" : file.fileSizeString, @"type" : @"label"}
-                                ].mutableCopy;
-        
-        switch (file.fileType)
-        {
-            case CLFileTypeDirectory:
-            {
-                [self.tableViewItems removeLastObject];
-                NSArray *directoryContents = file.directoryContents;
-                NSString *numberOfItems = [NSString stringWithFormat:@"%ld", (unsigned long)directoryContents.count];
-                NSDictionary *directoryItemsInfo = @{@"name" : @"Items", @"value" : numberOfItems, @"type" : @"label"};
-                CLFileSize totalSize = 0;
-                for (CLFile *f in directoryContents)
-                {
-                    totalSize += f.fileSize;
-                }
-                NSDictionary *directorySizeInfo = @{@"name" : @"Total Size", @"value" : [[NSFileManager defaultManager] formattedSizeStringForBytes:totalSize], @"type" : @"label"};
-                
-                [self.tableViewItems addObject:directoryItemsInfo];
-                [self.tableViewItems addObject:directorySizeInfo];
-                break;
-            }
-            case CLFileTypeImage:
-            {
-                UIImage *image = [UIImage imageWithContentsOfFile:file.filePath];
-                NSString *dimensionsString = [NSString stringWithFormat:@"%.0Fx%.0F", image.size.width, image.size.height];
-                [self.tableViewItems addObject:@{@"name" : @"Image Dimensions", @"value" : dimensionsString, @"type" : @"label"}];
-                
-                fraction raw((long)image.size.width, (long)image.size.height);
-                fraction aspect = raw.reduce();
-                NSString *aspectRatio = [NSString stringWithFormat:@"%ld:%ld", aspect.numerator(), aspect.denominator()];
-                [self.tableViewItems addObject:@{@"name" : @"Aspect Ratio", @"value" : aspectRatio, @"type" : @"label"}];
-                
-                break;
-            }
-                
-            case CLFileTypeMusic:
-            {
-                CLAudioItem *audioItem = [[CLAudioItem alloc] initWithFile:file];
-                NSDictionary *artistInfo = @{@"name" : @"Artist", @"value" : audioItem.artist, @"type" : @"field", @"selector" : @"changeArtist:"};
-                NSDictionary *albumInfo = @{@"name" : @"Album", @"value" : audioItem.album, @"type" : @"field", @"selector" : @"changeAlbum:"};
-                NSDictionary *songNameInfo = @{@"name" : @"Title", @"value" : audioItem.title, @"type" : @"field", @"selector" : @"changeName:"};
-                //NSDictionary *yearInfo = @{@"name" : @"Year", @"value" : audioItem.year, @"type" : @"field", @"selector" : @"changeYear:"}; TODO: implement
-                [self.tableViewItems addObjectsFromArray:@[artistInfo, albumInfo, songNameInfo]];
-                //moves onto movies, as the two share the duration property
-            }
-                
-            case CLFileTypeMovie:
-            {
-                AVURLAsset *asset = [AVURLAsset assetWithURL:file.fileURL];
-                CMTime durationTime = asset.duration;
-                CGFloat seconds = CMTimeGetSeconds(durationTime);
-                NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
-                formatter.allowedUnits =  NSCalendarUnitMinute | NSCalendarUnitSecond;
-                formatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
-                formatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
-                [self.tableViewItems addObject:@{@"name" : @"Duration", @"value" : [formatter stringFromTimeInterval:seconds], @"type" : @"label"}];
-                break;
-            }
-                
-            default:
-                break;
-        }
+        [self updateTableViewItems];
     }
     return self;
 }
@@ -136,6 +73,85 @@ public:
 - (id)initWithFilePath:(NSString *)path
 {
     return [self initWithFile:[CLFile fileWithPath:path error:nil]];
+}
+
+- (void)updateTableViewItems
+{
+    NSString *creationDateString = [dateFormatter stringFromDate:self.file.creationDate];
+    NSString *modifiedDateString = [dateFormatter stringFromDate:self.file.lastModifiedDate];
+    
+    self.tableViewItems =
+    @[@{@"name" : @"File Name", @"value" : self.file.fileName, @"type" : @"field", @"selector" : @"renameFile:"},
+      @{@"name" : @"Creation Date", @"value" : creationDateString, @"type" : @"label"},
+      @{@"name" : @"Last Modified", @"value" : modifiedDateString, @"type" : @"label"},
+      @{@"name" : @"File Size", @"value" : self.file.fileSizeString, @"type" : @"label"}
+      ].mutableCopy;
+    
+    switch (self.file.fileType)
+    {
+        case CLFileTypeDirectory:
+        {
+            [self.tableViewItems removeLastObject];
+            NSArray *directoryContents = self.file.directoryContents;
+            NSString *numberOfItems = [NSString stringWithFormat:@"%ld", (unsigned long)directoryContents.count];
+            NSDictionary *directoryItemsInfo = @{@"name" : @"Items", @"value" : numberOfItems, @"type" : @"label"};
+            CLFileSize totalSize = 0;
+            for (CLFile *f in directoryContents)
+            {
+                totalSize += f.fileSize;
+            }
+            NSDictionary *directorySizeInfo = @{@"name" : @"Total Size", @"value" : [[NSFileManager defaultManager] formattedSizeStringForBytes:totalSize], @"type" : @"label"};
+            
+            [self.tableViewItems addObject:directoryItemsInfo];
+            [self.tableViewItems addObject:directorySizeInfo];
+            break;
+        }
+        case CLFileTypeImage:
+        {
+            UIImage *image = [UIImage imageWithContentsOfFile:self.file.filePath];
+            NSString *dimensionsString = [NSString stringWithFormat:@"%.0Fx%.0F", image.size.width, image.size.height];
+            [self.tableViewItems addObject:@{@"name" : @"Image Dimensions", @"value" : dimensionsString, @"type" : @"label"}];
+            
+            fraction raw((long)image.size.width, (long)image.size.height);
+            fraction aspect = raw.reduce();
+            NSString *aspectRatio = [NSString stringWithFormat:@"%ld:%ld", aspect.numerator(), aspect.denominator()];
+            [self.tableViewItems addObject:@{@"name" : @"Aspect Ratio", @"value" : aspectRatio, @"type" : @"label"}];
+            
+            break;
+        }
+            
+        case CLFileTypeMusic:
+        {
+            CLAudioItem *audioItem = [[CLAudioItem alloc] initWithFile:self.file];
+            NSDictionary *artistInfo = @{@"name" : @"Artist", @"value" : audioItem.artist, @"type" : @"field", @"selector" : @"changeArtist:"};
+            NSDictionary *albumInfo = @{@"name" : @"Album", @"value" : audioItem.album, @"type" : @"field", @"selector" : @"changeAlbum:"};
+            NSDictionary *songNameInfo = @{@"name" : @"Title", @"value" : audioItem.title, @"type" : @"field", @"selector" : @"changeName:"};
+            //NSDictionary *yearInfo = @{@"name" : @"Year", @"value" : audioItem.year, @"type" : @"field", @"selector" : @"changeYear:"}; TODO: implement
+            [self.tableViewItems addObjectsFromArray:@[artistInfo, albumInfo, songNameInfo]];
+            if ([self.file.fileExtension isEqualToString:@"mp3"])
+            {
+                NSDictionary *artworkInfo = @{@"name" : @"Album Artwork", @"value" : audioItem.albumArtworkImage, @"type" : @"image", @"selector" : @"changeArtwork"};
+                [self.tableViewItems addObject:artworkInfo];
+            }
+            //moves onto movies, as the two share the duration property
+        }
+            
+        case CLFileTypeMovie:
+        {
+            AVURLAsset *asset = [AVURLAsset assetWithURL:self.file.fileURL];
+            CMTime durationTime = asset.duration;
+            CGFloat seconds = CMTimeGetSeconds(durationTime);
+            NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
+            formatter.allowedUnits =  NSCalendarUnitMinute | NSCalendarUnitSecond;
+            formatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
+            formatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
+            [self.tableViewItems addObject:@{@"name" : @"Duration", @"value" : [formatter stringFromTimeInterval:seconds], @"type" : @"label"}];
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -162,6 +178,52 @@ public:
     NSString *newFilePath = [self.file.filePath.stringByDeletingLastPathComponent stringByAppendingPathComponent:newFileName];
     [[NSFileManager defaultManager] moveItemAtPath:self.file.filePath toPath:newFilePath error:nil];
     self.file = [CLFile fileWithPath:newFilePath error:nil];
+}
+
+- (void)changeArtwork
+{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    TagLib::MPEG::File file(self.file.filePath.UTF8String);
+    TagLib::ID3v2::FrameList frameList = file.ID3v2Tag(true)->frameListMap()["APIC"];
+    TagLib::ID3v2::AttachedPictureFrame *picFrame;
+
+    if (frameList.isEmpty())
+    {
+        picFrame = new TagLib::ID3v2::AttachedPictureFrame;
+        picFrame->setMimeType("image/png");
+        NSData *imageData = UIImagePNGRepresentation(image);
+        TagLib::ByteVector bytes((const char *)imageData.bytes, (unsigned int)imageData.length);
+        picFrame->setPicture(bytes);
+        file.ID3v2Tag()->addFrame(picFrame);
+    }
+    for(TagLib::ID3v2::FrameList::ConstIterator it = frameList.begin(); it != frameList.end(); ++it)
+    {
+        picFrame = (TagLib::ID3v2::AttachedPictureFrame *)(*it);
+        if (picFrame->mimeType() == "image/png")
+        {
+            NSData *imageData = UIImagePNGRepresentation(image);
+            TagLib::ByteVector bytes((const char *)imageData.bytes, (unsigned int)imageData.length);
+            picFrame->setPicture(bytes);
+        }
+        else if (picFrame->mimeType() == "image/jpeg")
+        {
+            NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+            TagLib::ByteVector bytes((const char *)imageData.bytes, (unsigned int)imageData.length);
+            picFrame->setPicture(bytes);
+        }
+    }
+    file.save();
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self updateTableViewItems];
+    [self.tableView reloadData];
 }
 
 - (void)changeArtist:(UITextField *)sender
@@ -233,12 +295,32 @@ public:
         [textField addTarget:self action:selector forControlEvents:UIControlEventEditingDidEnd];
         [textField addTarget:textField action:@selector(resignFirstResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
     }
+    else if ([cellType isEqualToString:@"image"])
+    {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:cellDictionary[@"value"]];
+        imageView.frame = CGRectMake(0, 0, 40.0, 40.0);
+        cell.accessoryView = imageView;
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    }
     else
     {
         cell.detailTextLabel.text = cellDictionary[@"value"];
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *cellDictionary = self.tableViewItems[indexPath.row];
+
+    if ([cellDictionary[@"type"] isEqualToString:@"image"])
+    {
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:NSSelectorFromString(cellDictionary[@"selector"])];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

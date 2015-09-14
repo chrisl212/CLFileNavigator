@@ -25,6 +25,9 @@
 
 NSString *const CLDirectoryViewControllerRefreshNotification = @"shouldRefresh";
 
+NSString *const CLDirectoryViewControllerDisplayThumbnailsOption = @"thumbs";
+NSString *const CLDirectoryViewControllerDateDisplayOption = @"date";
+
 @implementation CLDirectoryViewController
 {
     CLFileTransfer *fileTransfer;
@@ -97,6 +100,8 @@ NSString *const CLDirectoryViewControllerRefreshNotification = @"shouldRefresh";
 {
     if (self = [super initWithStyle:UITableViewStylePlain])
     {
+        self.options = @{CLDirectoryViewControllerDateDisplayOption: @"Modification", CLDirectoryViewControllerDisplayThumbnailsOption: @(NO)};
+        
         NSError *err;
         self.files = [[NSFileManager defaultManager] filesFromDirectoryAtPath:dir.filePath error:&err];
         if (err)
@@ -204,12 +209,12 @@ NSString *const CLDirectoryViewControllerRefreshNotification = @"shouldRefresh";
         [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     }
     
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"date"] || [[[NSUserDefaults standardUserDefaults] objectForKey:@"date"] isEqualToString:@"Modification"])
+    if ([self.options[CLDirectoryViewControllerDateDisplayOption] isEqualToString:@"Modification"])
         cell.fileLastModifiedDateLabel.text = [dateFormatter stringFromDate:file.lastModifiedDate];
-    else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"date"] isEqualToString:@"Creation"])
+    else if ([self.options[CLDirectoryViewControllerDateDisplayOption] isEqualToString:@"Creation"])
         cell.fileLastModifiedDateLabel.text = [dateFormatter stringFromDate:file.creationDate]; //for use with myDownload
     
-    if ((file.fileType != CLFileTypeImage && file.fileType != CLFileTypeMusic && file.fileType != CLFileTypeMovie) || ![[NSUserDefaults standardUserDefaults] boolForKey:@"thumbnails"])
+    if ((file.fileType != CLFileTypeImage && file.fileType != CLFileTypeMusic && file.fileType != CLFileTypeMovie) || ![self.options[CLDirectoryViewControllerDisplayThumbnailsOption] boolValue])
         cell.fileIconImageView.image = [UIImage iconForFileType:file.fileType];
     else if (file.fileType == CLFileTypeMovie)
     {

@@ -10,7 +10,7 @@
 
 @class CLFile;
 
-@interface CLFilePropertiesViewController : UITableViewController
+@interface CLFilePropertiesViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *tableViewItems;
 @property (strong, nonatomic) CLFile *file;

@@ -14,6 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     CLDirectoryViewController *directoryViewController = [[CLDirectoryViewController alloc] init]; //initWithDirectoryPath:@"/"];
+    directoryViewController.options = @{CLDirectoryViewControllerDateDisplayOption: @"Modification", CLDirectoryViewControllerDisplayThumbnailsOption: @(YES)};
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:directoryViewController];
     
     CGRect applicationFrame = [[UIScreen mainScreen] bounds];

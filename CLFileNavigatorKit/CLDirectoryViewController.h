@@ -13,8 +13,12 @@
 
 extern NSString *const CLDirectoryViewControllerRefreshNotification;
 
+extern NSString *const CLDirectoryViewControllerDisplayThumbnailsOption;
+extern NSString *const CLDirectoryViewControllerDateDisplayOption;
+
 @interface CLDirectoryViewController : UITableViewController <UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, ACAlertViewDelegate, UIActionSheetDelegate>
 
+@property (strong, nonatomic) NSDictionary *options;
 @property (strong, nonatomic) CLFile *directory;
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSArray *files;

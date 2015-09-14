@@ -36,6 +36,7 @@
         case CLFileTypeDirectory:
         {
             CLDirectoryViewController *directoryViewController = [[CLDirectoryViewController alloc] initWithDirectoryPath:path];
+            directoryViewController.options = @{CLDirectoryViewControllerDisplayThumbnailsOption: @(YES), CLDirectoryViewControllerDateDisplayOption: @"Modification"};
             [vc.navigationController pushViewController:directoryViewController animated:YES];
             return;
         }
@@ -62,7 +63,7 @@
                     UIImage *image = [UIImage imageWithContentsOfFile:file.filePath];
                     if (!image)
                         image = [[UIImage alloc] init];
-                    NSDictionary *dict = @{CLImageFileNameKey: file.fileName, CLImageImageKey: image};
+                    NSDictionary *dict = @{CLImageFileNameKey: file.filePath, CLImageImageKey: image};
                     [imageObjects addObject:dict];
                     if ([file.filePath isEqualToString:path])
                         pathInArray = YES;
@@ -72,7 +73,7 @@
             UIImage *image = [UIImage imageWithContentsOfFile:path];
             if (!image)
                 image = [[UIImage alloc] init];
-            NSDictionary *dict = @{CLImageFileNameKey: path.lastPathComponent, CLImageImageKey: image};
+            NSDictionary *dict = @{CLImageFileNameKey: path, CLImageImageKey: image};
             if (!pathInArray)
                 [imageObjects addObject:dict];
             
@@ -80,7 +81,7 @@
                              {
                                  *stop = NO;
                                  NSString *fname = obj[CLImageFileNameKey];
-                                 if (![fname isEqualToString:path.lastPathComponent])
+                                 if (![fname isEqualToString:path])
                                      return NO;
                                  *stop = YES;
                                  return YES;
