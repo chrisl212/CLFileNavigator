@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB38E9AC1B939C0500F73C18 /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB38E9AB1B939C0500F73C18 /* libtag.a */; };
-		AB38E9AD1B939C0500F73C18 /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB38E9AB1B939C0500F73C18 /* libtag.a */; };
+		AB1FAA2C1BA7E56E007FF25F /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1FAA2B1BA7E56E007FF25F /* libtag.a */; };
+		AB1FAA2D1BA7E56E007FF25F /* libtag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1FAA2B1BA7E56E007FF25F /* libtag.a */; };
 		AB38E9C11B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */; };
 		AB38E9C21B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */; };
 		AB38E9CB1B93FF4500F73C18 /* archive-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */; };
@@ -55,6 +55,121 @@
 		AB667B041B90D6860043E285 /* CLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB667B021B90D6860043E285 /* CLSettingsViewController.m */; };
 		AB6A5BCC1B8E6B560084A3C9 /* CLFileTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6A5BCA1B8E6B560084A3C9 /* CLFileTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6A5BCD1B8E6B560084A3C9 /* CLFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6A5BCB1B8E6B560084A3C9 /* CLFileTransfer.m */; };
+		AB6D499C1BAD181900C97E92 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD2E1B8788EC00A5453F /* zip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D499D1BAD181900C97E92 /* ioapi_buf.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD281B8788EC00A5453F /* ioapi_buf.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D499E1BAD181900C97E92 /* mk251.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD071B8788A900A5453F /* mk251.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D499F1BAD181900C97E92 /* unzcrash.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD0C1B8788A900A5453F /* unzcrash.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49A01BAD181900C97E92 /* CLTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF4358B1B8A8B9A002D4557 /* CLTextEditorViewController.m */; };
+		AB6D49A11BAD181900C97E92 /* CLImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCAE1B8527AE00A5453F /* CLImageViewController.m */; };
+		AB6D49A21BAD181900C97E92 /* CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42CDEF1B842E4F009E3A6D /* CLFile.m */; };
+		AB6D49A31BAD181900C97E92 /* CLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCB51B8537E200A5453F /* CLWebViewController.m */; };
+		AB6D49A41BAD181900C97E92 /* CLFilePropertiesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB667AFE1B90B5DC0043E285 /* CLFilePropertiesViewController.mm */; };
+		AB6D49A51BAD181900C97E92 /* bzlib.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD001B8788A900A5453F /* bzlib.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49A61BAD181900C97E92 /* dlltest.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD051B8788A900A5453F /* dlltest.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49A71BAD181900C97E92 /* ACZip.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCFB1B8788A900A5453F /* ACZip.m */; };
+		AB6D49A81BAD181900C97E92 /* CLFileOpener.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCA91B85244400A5453F /* CLFileOpener.m */; };
+		AB6D49A91BAD181900C97E92 /* CLMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7BA7601BA5BCCE00F4956F /* CLMoviePlayerViewController.m */; };
+		AB6D49AA1BAD181900C97E92 /* compress.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD021B8788A900A5453F /* compress.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49AB1BAD181900C97E92 /* CLAudioItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCBF1B86235000A5453F /* CLAudioItem.m */; };
+		AB6D49AC1BAD181900C97E92 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD261B8788EC00A5453F /* ioapi.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49AD1BAD181900C97E92 /* CLAudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCB91B861FEF00A5453F /* CLAudioPlayerViewController.m */; };
+		AB6D49AE1BAD181900C97E92 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD2C1B8788EC00A5453F /* unzip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49AF1BAD181900C97E92 /* CLIconPackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB38E9E71B94F1E500F73C18 /* CLIconPackViewController.m */; };
+		AB6D49B01BAD181900C97E92 /* randtable.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD0A1B8788A900A5453F /* randtable.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49B11BAD181900C97E92 /* ioapi_mem.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD2A1B8788EC00A5453F /* ioapi_mem.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49B21BAD181900C97E92 /* CLFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42CDF31B843522009E3A6D /* CLFileCell.m */; };
+		AB6D49B31BAD181900C97E92 /* UIImage+CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42CE1B1B84D897009E3A6D /* UIImage+CLFile.m */; };
+		AB6D49B41BAD181900C97E92 /* crctable.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD031B8788A900A5453F /* crctable.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49B51BAD181900C97E92 /* ACAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBC9C1B8506BE00A5453F /* ACAlertView.m */; };
+		AB6D49B61BAD181900C97E92 /* CLFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6A5BCB1B8E6B560084A3C9 /* CLFileTransfer.m */; };
+		AB6D49B71BAD181900C97E92 /* CLDirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42CDEB1B842E0B009E3A6D /* CLDirectoryViewController.m */; };
+		AB6D49B81BAD181900C97E92 /* huffman.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD061B8788A900A5453F /* huffman.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49B91BAD181900C97E92 /* ACUnzip.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCF91B8788A900A5453F /* ACUnzip.m */; };
+		AB6D49BA1BAD181900C97E92 /* bzip2recover.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCFE1B8788A900A5453F /* bzip2recover.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49BB1BAD181900C97E92 /* blocksort.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCFC1B8788A900A5453F /* blocksort.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49BC1BAD181900C97E92 /* spewG.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD0B1B8788A900A5453F /* spewG.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49BD1BAD181900C97E92 /* NSFileManager+Tar.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD091B8788A900A5453F /* NSFileManager+Tar.m */; };
+		AB6D49BE1BAD181900C97E92 /* ACCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCA01B8506E200A5453F /* ACCircularProgressView.m */; };
+		AB6D49BF1BAD181900C97E92 /* decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD041B8788A900A5453F /* decompress.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49C01BAD181900C97E92 /* NSFileManager+CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42CDFF1B84C84B009E3A6D /* NSFileManager+CLFile.m */; };
+		AB6D49C11BAD181900C97E92 /* CLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB667B021B90D6860043E285 /* CLSettingsViewController.m */; };
+		AB6D49C21BAD181900C97E92 /* bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBCFD1B8788A900A5453F /* bzip2.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		AB6D49C41BAD181900C97E92 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB667B541B90FE0F0043E285 /* libstdc++.6.dylib */; };
+		AB6D49C61BAD181900C97E92 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBFBD3B1B878CE400A5453F /* libz.dylib */; };
+		AB6D49C81BAD181900C97E92 /* CLDirectoryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CDEA1B842E0B009E3A6D /* CLDirectoryViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49C91BAD181900C97E92 /* CLAudioItem.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCBE1B86235000A5453F /* CLAudioItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49CA1BAD181900C97E92 /* CLAudioPlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCB81B861FEF00A5453F /* CLAudioPlayerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49CB1BAD181900C97E92 /* UIImage+CLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CE1A1B84D897009E3A6D /* UIImage+CLFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49CC1BAD181900C97E92 /* CLFilePropertiesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB667AFD1B90B5DC0043E285 /* CLFilePropertiesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49CD1BAD181900C97E92 /* CLIconPackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB38E9E61B94F1E500F73C18 /* CLIconPackViewController.h */; };
+		AB6D49CE1BAD181900C97E92 /* CLTextEditorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF4358A1B8A8B9A002D4557 /* CLTextEditorViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49CF1BAD181900C97E92 /* ACUnzip.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCF81B8788A900A5453F /* ACUnzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D01BAD181900C97E92 /* CLImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCAD1B8527AE00A5453F /* CLImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D11BAD181900C97E92 /* CLFileTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6A5BCA1B8E6B560084A3C9 /* CLFileTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D21BAD181900C97E92 /* CLFileOpener.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCA81B85244400A5453F /* CLFileOpener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D31BAD181900C97E92 /* NSFileManager+CLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CDFE1B84C84B009E3A6D /* NSFileManager+CLFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D41BAD181900C97E92 /* ACZip.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCFA1B8788A900A5453F /* ACZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D51BAD181900C97E92 /* NSFileManager+Tar.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD081B8788A900A5453F /* NSFileManager+Tar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D61BAD181900C97E92 /* CLWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCB41B8537E200A5453F /* CLWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D71BAD181900C97E92 /* CLSettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB667B011B90D6860043E285 /* CLSettingsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D81BAD181900C97E92 /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD251B8788EC00A5453F /* crypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49D91BAD181900C97E92 /* bzlib_private.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCFF1B8788A900A5453F /* bzlib_private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49DA1BAD181900C97E92 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD2F1B8788EC00A5453F /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49DB1BAD181900C97E92 /* ioapi_buf.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD291B8788EC00A5453F /* ioapi_buf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49DC1BAD181900C97E92 /* ioapi_mem.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD2B1B8788EC00A5453F /* ioapi_mem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49DD1BAD181900C97E92 /* bzlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD011B8788A900A5453F /* bzlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49DE1BAD181900C97E92 /* CLMoviePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */; };
+		AB6D49DF1BAD181900C97E92 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD271B8788EC00A5453F /* ioapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49E01BAD181900C97E92 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD2D1B8788EC00A5453F /* unzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49E11BAD181900C97E92 /* CLFileNavigatorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CDCE1B842DD6009E3A6D /* CLFileNavigatorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49E21BAD181900C97E92 /* CLFileCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CDF21B843522009E3A6D /* CLFileCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49E31BAD181900C97E92 /* CLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CDEE1B842E4F009E3A6D /* CLFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49E41BAD181900C97E92 /* ACAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBC9B1B8506BE00A5453F /* ACAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49E51BAD181900C97E92 /* ACCircularProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBC9F1B8506E200A5453F /* ACCircularProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6D49E71BAD181900C97E92 /* installing_updates-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9FB1B9507BA00F73C18 /* installing_updates-50@2x.png */; };
+		AB6D49E81BAD181900C97E92 /* file-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9F01B95041000F73C18 /* file-50@2x.png */; };
+		AB6D49E91BAD181900C97E92 /* fast-forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCC31B8632B600A5453F /* fast-forward@3x.png */; };
+		AB6D49EA1BAD181900C97E92 /* rewind@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCC61B8632B600A5453F /* rewind@3x.png */; };
+		AB6D49EB1BAD181900C97E92 /* play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCC51B8632B600A5453F /* play@3x.png */; };
+		AB6D49EC1BAD181900C97E92 /* transparency@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCB11B85302900A5453F /* transparency@2x.jpg */; };
+		AB6D49ED1BAD181900C97E92 /* archive-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */; };
+		AB6D49EE1BAD181900C97E92 /* DefaultIcons.zip in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9E11B94EFBA00F73C18 /* DefaultIcons.zip */; };
+		AB6D49EF1BAD181900C97E92 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCCC1B86332500A5453F /* pause@2x.png */; };
+		AB6D49F01BAD181900C97E92 /* pause@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCC41B8632B600A5453F /* pause@3x.png */; };
+		AB6D49F11BAD181900C97E92 /* noart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCEE1B86405800A5453F /* noart@2x.png */; };
+		AB6D49F21BAD181900C97E92 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCCD1B86332500A5453F /* play@2x.png */; };
+		AB6D49F31BAD181900C97E92 /* medium_icons-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9F61B95048400F73C18 /* medium_icons-50@2x.png */; };
+		AB6D49F41BAD181900C97E92 /* file_filled-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9EF1B95041000F73C18 /* file_filled-50@2x.png */; };
+		AB6D49F51BAD181900C97E92 /* fast-forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCCB1B86332500A5453F /* fast-forward@2x.png */; };
+		AB6D49F61BAD181900C97E92 /* CLAudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCBC1B8620A100A5453F /* CLAudioPlayerViewController.xib */; };
+		AB6D49F71BAD181900C97E92 /* medium_icons_filled-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9F51B95048400F73C18 /* medium_icons_filled-50@2x.png */; };
+		AB6D49F81BAD181900C97E92 /* bluetooth-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */; };
+		AB6D49F91BAD181900C97E92 /* CLFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB42CDF41B843522009E3A6D /* CLFileCell.xib */; };
+		AB6D49FA1BAD181900C97E92 /* FileTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = AB42CDF81B843676009E3A6D /* FileTypes.json */; };
+		AB6D49FB1BAD181900C97E92 /* noart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCEF1B86405800A5453F /* noart@3x.png */; };
+		AB6D49FC1BAD181900C97E92 /* rewind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABBFBCCE1B86332500A5453F /* rewind@2x.png */; };
+		AB6D4A031BAD189300C97E92 /* libtagsimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6D4A021BAD189300C97E92 /* libtagsimulator.a */; };
+		AB6D4A131BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A111BAD285C00C97E92 /* medium_icons_filled-50@3x.png */; };
+		AB6D4A141BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A111BAD285C00C97E92 /* medium_icons_filled-50@3x.png */; };
+		AB6D4A151BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A111BAD285C00C97E92 /* medium_icons_filled-50@3x.png */; };
+		AB6D4A161BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A121BAD285C00C97E92 /* medium_icons-50@3x.png */; };
+		AB6D4A171BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A121BAD285C00C97E92 /* medium_icons-50@3x.png */; };
+		AB6D4A181BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A121BAD285C00C97E92 /* medium_icons-50@3x.png */; };
+		AB6D4A1E1BAD289B00C97E92 /* file_filled-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A1C1BAD289B00C97E92 /* file_filled-50@3x.png */; };
+		AB6D4A1F1BAD289B00C97E92 /* file_filled-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A1C1BAD289B00C97E92 /* file_filled-50@3x.png */; };
+		AB6D4A201BAD289B00C97E92 /* file_filled-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A1C1BAD289B00C97E92 /* file_filled-50@3x.png */; };
+		AB6D4A211BAD289B00C97E92 /* file-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A1D1BAD289B00C97E92 /* file-50@3x.png */; };
+		AB6D4A221BAD289B00C97E92 /* file-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A1D1BAD289B00C97E92 /* file-50@3x.png */; };
+		AB6D4A231BAD289B00C97E92 /* file-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A1D1BAD289B00C97E92 /* file-50@3x.png */; };
+		AB6D4A2C1BAD28EC00C97E92 /* archive-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A2A1BAD28EC00C97E92 /* archive-50@3x.png */; };
+		AB6D4A2D1BAD28EC00C97E92 /* archive-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A2A1BAD28EC00C97E92 /* archive-50@3x.png */; };
+		AB6D4A2E1BAD28EC00C97E92 /* archive-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A2A1BAD28EC00C97E92 /* archive-50@3x.png */; };
+		AB6D4A2F1BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A2B1BAD28EC00C97E92 /* bluetooth-50@3x.png */; };
+		AB6D4A301BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A2B1BAD28EC00C97E92 /* bluetooth-50@3x.png */; };
+		AB6D4A311BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A2B1BAD28EC00C97E92 /* bluetooth-50@3x.png */; };
+		AB6D4A331BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */; };
+		AB6D4A341BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */; };
+		AB6D4A351BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */; };
 		AB7BA7611BA5BCCE00F4956F /* CLMoviePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */; };
 		AB7BA7621BA5BCCE00F4956F /* CLMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7BA7601BA5BCCE00F4956F /* CLMoviePlayerViewController.m */; };
 		AB8AFB0A1B91030900246EBC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBFBD3B1B878CE400A5453F /* libz.dylib */; };
@@ -160,7 +275,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AB38E9AB1B939C0500F73C18 /* libtag.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtag.a; path = "../../Downloads/taglib-1.9.1/taglib/Debug-iphoneos/libtag.a"; sourceTree = "<group>"; };
+		AB1FAA2B1BA7E56E007FF25F /* libtag.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtag.a; path = "../../Downloads/taglib-1.9.1/taglib/Debug-iphoneos/libtag.a"; sourceTree = "<group>"; };
 		AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bluetooth-50@2x.png"; sourceTree = "<group>"; };
 		AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archive-50@2x.png"; sourceTree = "<group>"; };
 		AB38E9E11B94EFBA00F73C18 /* DefaultIcons.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = DefaultIcons.zip; sourceTree = "<group>"; };
@@ -201,6 +316,16 @@
 		AB667B541B90FE0F0043E285 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		AB6A5BCA1B8E6B560084A3C9 /* CLFileTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFileTransfer.h; sourceTree = "<group>"; };
 		AB6A5BCB1B8E6B560084A3C9 /* CLFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFileTransfer.m; sourceTree = "<group>"; };
+		AB6D4A001BAD181900C97E92 /* CLFileNavigatorKitSimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CLFileNavigatorKitSimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6D4A011BAD181A00C97E92 /* CLFileNavigatorKit copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CLFileNavigatorKit copy-Info.plist"; path = "/Users/christopherloonam/Projects/CLFileNavigator/CLFileNavigatorKit copy-Info.plist"; sourceTree = "<absolute>"; };
+		AB6D4A021BAD189300C97E92 /* libtagsimulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtagsimulator.a; path = "../../Downloads/taglib-1.9.1/taglib/Debug-iphonesimulator/libtagsimulator.a"; sourceTree = "<group>"; };
+		AB6D4A111BAD285C00C97E92 /* medium_icons_filled-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medium_icons_filled-50@3x.png"; sourceTree = "<group>"; };
+		AB6D4A121BAD285C00C97E92 /* medium_icons-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medium_icons-50@3x.png"; sourceTree = "<group>"; };
+		AB6D4A1C1BAD289B00C97E92 /* file_filled-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "file_filled-50@3x.png"; sourceTree = "<group>"; };
+		AB6D4A1D1BAD289B00C97E92 /* file-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "file-50@3x.png"; sourceTree = "<group>"; };
+		AB6D4A2A1BAD28EC00C97E92 /* archive-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archive-50@3x.png"; sourceTree = "<group>"; };
+		AB6D4A2B1BAD28EC00C97E92 /* bluetooth-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bluetooth-50@3x.png"; sourceTree = "<group>"; };
+		AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "installing_updates-50@3x.png"; sourceTree = "<group>"; };
 		AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMoviePlayerViewController.h; sourceTree = "<group>"; };
 		AB7BA7601BA5BCCE00F4956F /* CLMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMoviePlayerViewController.m; sourceTree = "<group>"; };
 		ABA1F12F1B8CC2DB00DCD901 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
@@ -274,7 +399,7 @@
 			files = (
 				ABBFBD3C1B878CE500A5453F /* libz.dylib in Frameworks */,
 				ABA1F1301B8CC2DB00DCD901 /* MultipeerConnectivity.framework in Frameworks */,
-				AB38E9AC1B939C0500F73C18 /* libtag.a in Frameworks */,
+				AB1FAA2C1BA7E56E007FF25F /* libtag.a in Frameworks */,
 				AB42CE191B84D5A4009E3A6D /* MobileCoreServices.framework in Frameworks */,
 				AB42CDE11B842DD6009E3A6D /* CLFileNavigatorKit.framework in Frameworks */,
 			);
@@ -285,8 +410,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB8AFB0D1B91032F00246EBC /* libstdc++.6.dylib in Frameworks */,
-				AB38E9AD1B939C0500F73C18 /* libtag.a in Frameworks */,
+				AB1FAA2D1BA7E56E007FF25F /* libtag.a in Frameworks */,
 				AB8AFB0A1B91030900246EBC /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB6D49C31BAD181900C97E92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6D49C41BAD181900C97E92 /* libstdc++.6.dylib in Frameworks */,
+				AB6D49C61BAD181900C97E92 /* libz.dylib in Frameworks */,
+				AB6D4A031BAD189300C97E92 /* libtagsimulator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +440,8 @@
 				AB42CDEB1B842E0B009E3A6D /* CLDirectoryViewController.m */,
 				AB38E9BE1B93CA7A00F73C18 /* bluetooth-50@2x.png */,
 				AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */,
+				AB6D4A2A1BAD28EC00C97E92 /* archive-50@3x.png */,
+				AB6D4A2B1BAD28EC00C97E92 /* bluetooth-50@3x.png */,
 			);
 			name = "Directory View Controller";
 			sourceTree = "<group>";
@@ -314,9 +451,14 @@
 			children = (
 				AB38E9EF1B95041000F73C18 /* file_filled-50@2x.png */,
 				AB38E9F01B95041000F73C18 /* file-50@2x.png */,
+				AB6D4A1C1BAD289B00C97E92 /* file_filled-50@3x.png */,
+				AB6D4A1D1BAD289B00C97E92 /* file-50@3x.png */,
 				AB38E9F51B95048400F73C18 /* medium_icons_filled-50@2x.png */,
 				AB38E9F61B95048400F73C18 /* medium_icons-50@2x.png */,
+				AB6D4A111BAD285C00C97E92 /* medium_icons_filled-50@3x.png */,
+				AB6D4A121BAD285C00C97E92 /* medium_icons-50@3x.png */,
 				AB38E9FB1B9507BA00F73C18 /* installing_updates-50@2x.png */,
+				AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */,
 				AB667B011B90D6860043E285 /* CLSettingsViewController.h */,
 				AB667B021B90D6860043E285 /* CLSettingsViewController.m */,
 				AB38E9E61B94F1E500F73C18 /* CLIconPackViewController.h */,
@@ -361,6 +503,7 @@
 			children = (
 				AB42CD9C1B842DAB009E3A6D /* CLFileNavigator.app */,
 				AB42CDCA1B842DD6009E3A6D /* CLFileNavigatorKit.framework */,
+				AB6D4A001BAD181900C97E92 /* CLFileNavigatorKitSimulator.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -404,6 +547,7 @@
 		AB42CDCC1B842DD6009E3A6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB6D4A011BAD181A00C97E92 /* CLFileNavigatorKit copy-Info.plist */,
 				AB42CDCD1B842DD6009E3A6D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -413,7 +557,8 @@
 		AB667B121B90F8F40043E285 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AB38E9AB1B939C0500F73C18 /* libtag.a */,
+				AB1FAA2B1BA7E56E007FF25F /* libtag.a */,
+				AB6D4A021BAD189300C97E92 /* libtagsimulator.a */,
 				AB667B541B90FE0F0043E285 /* libstdc++.6.dylib */,
 				ABA1F12F1B8CC2DB00DCD901 /* MultipeerConnectivity.framework */,
 				ABBFBD3B1B878CE400A5453F /* libz.dylib */,
@@ -573,6 +718,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB6D49C71BAD181900C97E92 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6D49C81BAD181900C97E92 /* CLDirectoryViewController.h in Headers */,
+				AB6D49C91BAD181900C97E92 /* CLAudioItem.h in Headers */,
+				AB6D49CA1BAD181900C97E92 /* CLAudioPlayerViewController.h in Headers */,
+				AB6D49CB1BAD181900C97E92 /* UIImage+CLFile.h in Headers */,
+				AB6D49CC1BAD181900C97E92 /* CLFilePropertiesViewController.h in Headers */,
+				AB6D49CD1BAD181900C97E92 /* CLIconPackViewController.h in Headers */,
+				AB6D49CE1BAD181900C97E92 /* CLTextEditorViewController.h in Headers */,
+				AB6D49CF1BAD181900C97E92 /* ACUnzip.h in Headers */,
+				AB6D49D01BAD181900C97E92 /* CLImageViewController.h in Headers */,
+				AB6D49D11BAD181900C97E92 /* CLFileTransfer.h in Headers */,
+				AB6D49D21BAD181900C97E92 /* CLFileOpener.h in Headers */,
+				AB6D49D31BAD181900C97E92 /* NSFileManager+CLFile.h in Headers */,
+				AB6D49D41BAD181900C97E92 /* ACZip.h in Headers */,
+				AB6D49D51BAD181900C97E92 /* NSFileManager+Tar.h in Headers */,
+				AB6D49D61BAD181900C97E92 /* CLWebViewController.h in Headers */,
+				AB6D49D71BAD181900C97E92 /* CLSettingsViewController.h in Headers */,
+				AB6D49D81BAD181900C97E92 /* crypt.h in Headers */,
+				AB6D49D91BAD181900C97E92 /* bzlib_private.h in Headers */,
+				AB6D49DA1BAD181900C97E92 /* zip.h in Headers */,
+				AB6D49DB1BAD181900C97E92 /* ioapi_buf.h in Headers */,
+				AB6D49DC1BAD181900C97E92 /* ioapi_mem.h in Headers */,
+				AB6D49DD1BAD181900C97E92 /* bzlib.h in Headers */,
+				AB6D49DE1BAD181900C97E92 /* CLMoviePlayerViewController.h in Headers */,
+				AB6D49DF1BAD181900C97E92 /* ioapi.h in Headers */,
+				AB6D49E01BAD181900C97E92 /* unzip.h in Headers */,
+				AB6D49E11BAD181900C97E92 /* CLFileNavigatorKit.h in Headers */,
+				AB6D49E21BAD181900C97E92 /* CLFileCell.h in Headers */,
+				AB6D49E31BAD181900C97E92 /* CLFile.h in Headers */,
+				AB6D49E41BAD181900C97E92 /* ACAlertView.h in Headers */,
+				AB6D49E51BAD181900C97E92 /* ACCircularProgressView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -613,6 +795,24 @@
 			productReference = AB42CDCA1B842DD6009E3A6D /* CLFileNavigatorKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		AB6D499A1BAD181900C97E92 /* CLFileNavigatorKitSimulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB6D49FD1BAD181900C97E92 /* Build configuration list for PBXNativeTarget "CLFileNavigatorKitSimulator" */;
+			buildPhases = (
+				AB6D499B1BAD181900C97E92 /* Sources */,
+				AB6D49C31BAD181900C97E92 /* Frameworks */,
+				AB6D49C71BAD181900C97E92 /* Headers */,
+				AB6D49E61BAD181900C97E92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CLFileNavigatorKitSimulator;
+			productName = CLFileNavigatorKit;
+			productReference = AB6D4A001BAD181900C97E92 /* CLFileNavigatorKitSimulator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -646,6 +846,7 @@
 			targets = (
 				AB42CD9B1B842DAB009E3A6D /* CLFileNavigator */,
 				AB42CDC91B842DD6009E3A6D /* CLFileNavigatorKit */,
+				AB6D499A1BAD181900C97E92 /* CLFileNavigatorKitSimulator */,
 			);
 		};
 /* End PBXProject section */
@@ -658,20 +859,27 @@
 				AB38E9FC1B9507BA00F73C18 /* installing_updates-50@2x.png in Resources */,
 				ABBFBCE51B863A5700A5453F /* fast-forward@2x.png in Resources */,
 				ABBFBCE61B863A5700A5453F /* pause@2x.png in Resources */,
+				AB6D4A131BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */,
 				ABBFBCE71B863A5700A5453F /* play@2x.png in Resources */,
 				AB38E9E21B94EFBA00F73C18 /* DefaultIcons.zip in Resources */,
 				ABBFBCF61B86408500A5453F /* noart@2x.png in Resources */,
 				ABBFBCE81B863A5700A5453F /* rewind@2x.png in Resources */,
 				AB38E9F11B95041000F73C18 /* file_filled-50@2x.png in Resources */,
+				AB6D4A2F1BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */,
 				AB38E9F91B95048400F73C18 /* medium_icons-50@2x.png in Resources */,
 				AB38E9F31B95041000F73C18 /* file-50@2x.png in Resources */,
 				ABBFBCE91B863A5700A5453F /* fast-forward@3x.png in Resources */,
 				ABBFBCF71B86408500A5453F /* noart@3x.png in Resources */,
+				AB6D4A1E1BAD289B00C97E92 /* file_filled-50@3x.png in Resources */,
 				ABBFBCEA1B863A5700A5453F /* pause@3x.png in Resources */,
 				ABBFBCEB1B863A5700A5453F /* play@3x.png in Resources */,
+				AB6D4A2C1BAD28EC00C97E92 /* archive-50@3x.png in Resources */,
+				AB6D4A331BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */,
 				ABBFBCEC1B863A5700A5453F /* rewind@3x.png in Resources */,
 				ABBFBCED1B863A5700A5453F /* CLAudioPlayerViewController.xib in Resources */,
+				AB6D4A211BAD289B00C97E92 /* file-50@3x.png in Resources */,
 				AB42CE281B84DA18009E3A6D /* FileTypes.json in Resources */,
+				AB6D4A161BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */,
 				AB38E9C11B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */,
 				AB38E9F71B95048400F73C18 /* medium_icons_filled-50@2x.png in Resources */,
 				AB38E9CB1B93FF4500F73C18 /* archive-50@2x.png in Resources */,
@@ -688,12 +896,16 @@
 			files = (
 				AB38E9FD1B9507BA00F73C18 /* installing_updates-50@2x.png in Resources */,
 				AB38E9F41B95041000F73C18 /* file-50@2x.png in Resources */,
+				AB6D4A171BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */,
+				AB6D4A341BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */,
+				AB6D4A141BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */,
 				ABBFBCC71B8632B600A5453F /* fast-forward@3x.png in Resources */,
 				ABBFBCCA1B8632B600A5453F /* rewind@3x.png in Resources */,
 				ABBFBCC91B8632B600A5453F /* play@3x.png in Resources */,
 				ABBFBCB21B85302900A5453F /* transparency@2x.jpg in Resources */,
 				AB38E9CC1B93FF4500F73C18 /* archive-50@2x.png in Resources */,
 				AB38E9E31B94EFBA00F73C18 /* DefaultIcons.zip in Resources */,
+				AB6D4A221BAD289B00C97E92 /* file-50@3x.png in Resources */,
 				ABBFBCD01B86332500A5453F /* pause@2x.png in Resources */,
 				ABBFBCC81B8632B600A5453F /* pause@3x.png in Resources */,
 				ABBFBCF01B86405800A5453F /* noart@2x.png in Resources */,
@@ -702,12 +914,51 @@
 				AB38E9F21B95041000F73C18 /* file_filled-50@2x.png in Resources */,
 				ABBFBCCF1B86332500A5453F /* fast-forward@2x.png in Resources */,
 				ABBFBCBD1B8620A100A5453F /* CLAudioPlayerViewController.xib in Resources */,
+				AB6D4A1F1BAD289B00C97E92 /* file_filled-50@3x.png in Resources */,
 				AB38E9F81B95048400F73C18 /* medium_icons_filled-50@2x.png in Resources */,
 				AB38E9C21B93CA7A00F73C18 /* bluetooth-50@2x.png in Resources */,
 				AB42CDF71B843522009E3A6D /* CLFileCell.xib in Resources */,
 				AB42CDF91B843676009E3A6D /* FileTypes.json in Resources */,
 				ABBFBCF11B86405800A5453F /* noart@3x.png in Resources */,
+				AB6D4A301BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */,
 				ABBFBCD21B86332500A5453F /* rewind@2x.png in Resources */,
+				AB6D4A2D1BAD28EC00C97E92 /* archive-50@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB6D49E61BAD181900C97E92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6D49E71BAD181900C97E92 /* installing_updates-50@2x.png in Resources */,
+				AB6D49E81BAD181900C97E92 /* file-50@2x.png in Resources */,
+				AB6D4A181BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */,
+				AB6D4A351BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */,
+				AB6D4A151BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */,
+				AB6D49E91BAD181900C97E92 /* fast-forward@3x.png in Resources */,
+				AB6D49EA1BAD181900C97E92 /* rewind@3x.png in Resources */,
+				AB6D49EB1BAD181900C97E92 /* play@3x.png in Resources */,
+				AB6D49EC1BAD181900C97E92 /* transparency@2x.jpg in Resources */,
+				AB6D49ED1BAD181900C97E92 /* archive-50@2x.png in Resources */,
+				AB6D49EE1BAD181900C97E92 /* DefaultIcons.zip in Resources */,
+				AB6D4A231BAD289B00C97E92 /* file-50@3x.png in Resources */,
+				AB6D49EF1BAD181900C97E92 /* pause@2x.png in Resources */,
+				AB6D49F01BAD181900C97E92 /* pause@3x.png in Resources */,
+				AB6D49F11BAD181900C97E92 /* noart@2x.png in Resources */,
+				AB6D49F21BAD181900C97E92 /* play@2x.png in Resources */,
+				AB6D49F31BAD181900C97E92 /* medium_icons-50@2x.png in Resources */,
+				AB6D49F41BAD181900C97E92 /* file_filled-50@2x.png in Resources */,
+				AB6D49F51BAD181900C97E92 /* fast-forward@2x.png in Resources */,
+				AB6D49F61BAD181900C97E92 /* CLAudioPlayerViewController.xib in Resources */,
+				AB6D4A201BAD289B00C97E92 /* file_filled-50@3x.png in Resources */,
+				AB6D49F71BAD181900C97E92 /* medium_icons_filled-50@2x.png in Resources */,
+				AB6D49F81BAD181900C97E92 /* bluetooth-50@2x.png in Resources */,
+				AB6D49F91BAD181900C97E92 /* CLFileCell.xib in Resources */,
+				AB6D49FA1BAD181900C97E92 /* FileTypes.json in Resources */,
+				AB6D49FB1BAD181900C97E92 /* noart@3x.png in Resources */,
+				AB6D4A311BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */,
+				AB6D49FC1BAD181900C97E92 /* rewind@2x.png in Resources */,
+				AB6D4A2E1BAD28EC00C97E92 /* archive-50@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +1017,52 @@
 				AB42CE011B84C84B009E3A6D /* NSFileManager+CLFile.m in Sources */,
 				AB667B041B90D6860043E285 /* CLSettingsViewController.m in Sources */,
 				ABBFBD121B8788A900A5453F /* bzip2.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB6D499B1BAD181900C97E92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6D499C1BAD181900C97E92 /* zip.c in Sources */,
+				AB6D499D1BAD181900C97E92 /* ioapi_buf.c in Sources */,
+				AB6D499E1BAD181900C97E92 /* mk251.c in Sources */,
+				AB6D499F1BAD181900C97E92 /* unzcrash.c in Sources */,
+				AB6D49A01BAD181900C97E92 /* CLTextEditorViewController.m in Sources */,
+				AB6D49A11BAD181900C97E92 /* CLImageViewController.m in Sources */,
+				AB6D49A21BAD181900C97E92 /* CLFile.m in Sources */,
+				AB6D49A31BAD181900C97E92 /* CLWebViewController.m in Sources */,
+				AB6D49A41BAD181900C97E92 /* CLFilePropertiesViewController.mm in Sources */,
+				AB6D49A51BAD181900C97E92 /* bzlib.c in Sources */,
+				AB6D49A61BAD181900C97E92 /* dlltest.c in Sources */,
+				AB6D49A71BAD181900C97E92 /* ACZip.m in Sources */,
+				AB6D49A81BAD181900C97E92 /* CLFileOpener.m in Sources */,
+				AB6D49A91BAD181900C97E92 /* CLMoviePlayerViewController.m in Sources */,
+				AB6D49AA1BAD181900C97E92 /* compress.c in Sources */,
+				AB6D49AB1BAD181900C97E92 /* CLAudioItem.m in Sources */,
+				AB6D49AC1BAD181900C97E92 /* ioapi.c in Sources */,
+				AB6D49AD1BAD181900C97E92 /* CLAudioPlayerViewController.m in Sources */,
+				AB6D49AE1BAD181900C97E92 /* unzip.c in Sources */,
+				AB6D49AF1BAD181900C97E92 /* CLIconPackViewController.m in Sources */,
+				AB6D49B01BAD181900C97E92 /* randtable.c in Sources */,
+				AB6D49B11BAD181900C97E92 /* ioapi_mem.c in Sources */,
+				AB6D49B21BAD181900C97E92 /* CLFileCell.m in Sources */,
+				AB6D49B31BAD181900C97E92 /* UIImage+CLFile.m in Sources */,
+				AB6D49B41BAD181900C97E92 /* crctable.c in Sources */,
+				AB6D49B51BAD181900C97E92 /* ACAlertView.m in Sources */,
+				AB6D49B61BAD181900C97E92 /* CLFileTransfer.m in Sources */,
+				AB6D49B71BAD181900C97E92 /* CLDirectoryViewController.m in Sources */,
+				AB6D49B81BAD181900C97E92 /* huffman.c in Sources */,
+				AB6D49B91BAD181900C97E92 /* ACUnzip.m in Sources */,
+				AB6D49BA1BAD181900C97E92 /* bzip2recover.c in Sources */,
+				AB6D49BB1BAD181900C97E92 /* blocksort.c in Sources */,
+				AB6D49BC1BAD181900C97E92 /* spewG.c in Sources */,
+				AB6D49BD1BAD181900C97E92 /* NSFileManager+Tar.m in Sources */,
+				AB6D49BE1BAD181900C97E92 /* ACCircularProgressView.m in Sources */,
+				AB6D49BF1BAD181900C97E92 /* decompress.c in Sources */,
+				AB6D49C01BAD181900C97E92 /* NSFileManager+CLFile.m in Sources */,
+				AB6D49C11BAD181900C97E92 /* CLSettingsViewController.m in Sources */,
+				AB6D49C21BAD181900C97E92 /* bzip2.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,6 +1191,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
 					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphonesimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -925,6 +1223,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
 					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphonesimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -962,6 +1261,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
 					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphonesimulator",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -998,8 +1298,86 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
 					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphonesimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AB6D49FE1BAD181900C97E92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/christopherloonam/Projects/CLFileNavigator/TagLib-headers",
+					/Users/christopherloonam/Projects/CLFileNavigator/id3,
+				);
+				INFOPLIST_FILE = "CLFileNavigatorKit copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphonesimulator",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = CLFileNavigatorKitSimulator;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AB6D49FF1BAD181900C97E92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/christopherloonam/Projects/CLFileNavigator/TagLib-headers",
+					/Users/christopherloonam/Projects/CLFileNavigator/id3,
+				);
+				INFOPLIST_FILE = "CLFileNavigatorKit copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-ghovvoqthcpkzxdjvvjowxpfunsq/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphoneos",
+					"/Users/christopherloonam/Downloads/taglib-1.9.1/taglib/Debug-iphonesimulator",
+				);
+				PRODUCT_NAME = CLFileNavigatorKitSimulator;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386";
@@ -1034,6 +1412,15 @@
 			buildConfigurations = (
 				AB42CDE41B842DD6009E3A6D /* Debug */,
 				AB42CDE51B842DD6009E3A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB6D49FD1BAD181900C97E92 /* Build configuration list for PBXNativeTarget "CLFileNavigatorKitSimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB6D49FE1BAD181900C97E92 /* Debug */,
+				AB6D49FF1BAD181900C97E92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

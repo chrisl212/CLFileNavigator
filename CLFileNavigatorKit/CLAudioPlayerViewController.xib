@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CLAudioPlayerViewController">
@@ -21,79 +23,190 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noart.png" id="XHz-7k-THZ">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noart.png" translatesAutoresizingMaskIntoConstraints="NO" id="XHz-7k-THZ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="363"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="363" id="Yob-aD-6e3"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Yob-aD-6e3"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <exclude reference="Yob-aD-6e3"/>
+                        </mask>
+                    </variation>
                 </imageView>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="4dc-nT-4Vn">
-                    <rect key="frame" x="48" y="371" width="224" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4dc-nT-4Vn">
+                    <rect key="frame" x="48" y="371" width="504" height="31"/>
                 </slider>
-                <view contentMode="scaleToFill" id="mvs-PS-OnJ" customClass="MPVolumeView">
-                    <rect key="frame" x="8" y="534" width="304" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="01j-s1-6Tg">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-s1-6Tg">
                     <rect key="frame" x="8" y="376" width="34" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="GQG-TG-Kz7"/>
+                        <constraint firstAttribute="width" constant="34" id="Nut-07-ZjP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Nut-07-ZjP"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Nut-07-ZjP"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wch-s1-Scr">
+                    <rect key="frame" x="558" y="376" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wch-s1-Scr">
-                    <rect key="frame" x="278" y="376" width="34" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dUh-Bt-Si6">
-                    <rect key="frame" x="8" y="409" width="304" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist - Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C4s-by-uX8">
-                    <rect key="frame" x="8" y="443" width="304" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="MUy-Nq-Lve">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUy-Nq-Lve">
                     <rect key="frame" x="8" y="480" width="35" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="GYf-V6-UIx"/>
+                        <constraint firstAttribute="height" constant="35" id="yjd-4A-KBz"/>
+                    </constraints>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" image="rewind.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="yjd-4A-KBz"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="yjd-4A-KBz"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="changeSong:" destination="-1" eventType="touchUpInside" id="3qY-In-Mwi"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="IsX-B9-zQf">
-                    <rect key="frame" x="277" y="480" width="35" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsX-B9-zQf">
+                    <rect key="frame" x="557" y="480" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="5IZ-pp-jQz"/>
+                        <constraint firstAttribute="width" constant="35" id="D5R-RK-al0"/>
+                    </constraints>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" image="fast-forward.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="5IZ-pp-jQz"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="5IZ-pp-jQz"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="changeSong:" destination="-1" eventType="touchUpInside" id="UbB-By-Us8"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="rUU-y9-saM">
-                    <rect key="frame" x="143" y="480" width="35" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUU-y9-saM">
+                    <rect key="frame" x="283" y="480" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="3YH-N9-GJw"/>
+                        <constraint firstAttribute="width" constant="35" id="h1j-l5-fpt"/>
+                    </constraints>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" image="play.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="h1j-l5-fpt"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="h1j-l5-fpt"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="play:" destination="-1" eventType="touchUpInside" id="bP2-Zn-2bH"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUh-Bt-Si6">
+                    <rect key="frame" x="8" y="409" width="584" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist - Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-by-uX8">
+                    <rect key="frame" x="8" y="443" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ZEp-8E-JNv"/>
+                        <constraint firstAttribute="height" constant="21" id="w7O-Ic-bJP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="w7O-Ic-bJP"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="w7O-Ic-bJP"/>
+                        </mask>
+                    </variation>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvs-PS-OnJ" customClass="MPVolumeView">
+                    <rect key="frame" x="8" y="555" width="584" height="37"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="szf-wf-JyA"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Wch-s1-Scr" firstAttribute="trailing" secondItem="IsX-B9-zQf" secondAttribute="trailing" id="1wf-6b-faM"/>
+                <constraint firstItem="mvs-PS-OnJ" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="1yf-GC-7aU"/>
+                <constraint firstItem="4dc-nT-4Vn" firstAttribute="centerY" secondItem="01j-s1-6Tg" secondAttribute="centerY" id="2Ub-nO-Bgd"/>
+                <constraint firstItem="dUh-Bt-Si6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6FP-b7-WPm"/>
+                <constraint firstItem="C4s-by-uX8" firstAttribute="trailing" secondItem="dUh-Bt-Si6" secondAttribute="trailing" id="97h-py-56t"/>
+                <constraint firstItem="MUy-Nq-Lve" firstAttribute="leading" secondItem="mvs-PS-OnJ" secondAttribute="leading" id="BAA-O1-zhn"/>
+                <constraint firstItem="4dc-nT-4Vn" firstAttribute="leading" secondItem="01j-s1-6Tg" secondAttribute="trailing" constant="8" symbolic="YES" id="Ccv-b3-en7"/>
+                <constraint firstItem="C4s-by-uX8" firstAttribute="top" secondItem="dUh-Bt-Si6" secondAttribute="bottom" constant="1" id="Cgn-j3-3Dg"/>
+                <constraint firstItem="IsX-B9-zQf" firstAttribute="top" secondItem="rUU-y9-saM" secondAttribute="top" id="DDX-Of-TBD"/>
+                <constraint firstItem="Wch-s1-Scr" firstAttribute="leading" secondItem="4dc-nT-4Vn" secondAttribute="trailing" constant="8" symbolic="YES" id="Dty-2y-KdB"/>
+                <constraint firstItem="MUy-Nq-Lve" firstAttribute="top" secondItem="rUU-y9-saM" secondAttribute="top" id="HsA-o7-6by"/>
+                <constraint firstItem="4dc-nT-4Vn" firstAttribute="centerX" secondItem="XHz-7k-THZ" secondAttribute="centerX" id="JF0-oJ-2iL"/>
+                <constraint firstItem="rUU-y9-saM" firstAttribute="top" secondItem="C4s-by-uX8" secondAttribute="bottom" constant="16" id="NBP-MF-33a"/>
+                <constraint firstAttribute="trailing" secondItem="XHz-7k-THZ" secondAttribute="trailing" id="NMd-4t-nhT"/>
+                <constraint firstItem="rUU-y9-saM" firstAttribute="centerX" secondItem="mvs-PS-OnJ" secondAttribute="centerX" id="Ox4-sv-2Oh"/>
+                <constraint firstItem="XHz-7k-THZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PeY-wB-fEf"/>
+                <constraint firstItem="MUy-Nq-Lve" firstAttribute="top" secondItem="01j-s1-6Tg" secondAttribute="bottom" constant="83" id="X97-xX-prj"/>
+                <constraint firstItem="XHz-7k-THZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="a8f-LF-A1B"/>
+                <constraint firstItem="01j-s1-6Tg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="cNp-SU-FAp"/>
+                <constraint firstItem="dUh-Bt-Si6" firstAttribute="centerX" secondItem="4dc-nT-4Vn" secondAttribute="centerX" id="dTH-SL-Jtr"/>
+                <constraint firstItem="rUU-y9-saM" firstAttribute="centerX" secondItem="C4s-by-uX8" secondAttribute="centerX" id="eLP-Za-0kl"/>
+                <constraint firstItem="01j-s1-6Tg" firstAttribute="top" secondItem="XHz-7k-THZ" secondAttribute="bottom" constant="13" id="flm-Gx-Wya"/>
+                <constraint firstItem="Wch-s1-Scr" firstAttribute="baseline" secondItem="01j-s1-6Tg" secondAttribute="baseline" id="h5v-gp-9tx"/>
+                <constraint firstItem="MUy-Nq-Lve" firstAttribute="bottom" secondItem="rUU-y9-saM" secondAttribute="bottom" id="hY2-VW-jBs"/>
+                <constraint firstItem="MUy-Nq-Lve" firstAttribute="leading" secondItem="01j-s1-6Tg" secondAttribute="leading" id="j09-K3-Tn4"/>
+                <constraint firstItem="rUU-y9-saM" firstAttribute="bottom" secondItem="IsX-B9-zQf" secondAttribute="bottom" id="j6a-fp-nsD"/>
+                <constraint firstItem="mvs-PS-OnJ" firstAttribute="top" secondItem="MUy-Nq-Lve" secondAttribute="bottom" constant="40" id="o86-OP-cpk"/>
+                <constraint firstItem="4dc-nT-4Vn" firstAttribute="top" secondItem="XHz-7k-THZ" secondAttribute="bottom" constant="8" symbolic="YES" id="oz2-DB-4bG"/>
+                <constraint firstItem="C4s-by-uX8" firstAttribute="leading" secondItem="dUh-Bt-Si6" secondAttribute="leading" id="pKx-n9-9Tb"/>
+                <constraint firstItem="dUh-Bt-Si6" firstAttribute="top" secondItem="4dc-nT-4Vn" secondAttribute="bottom" constant="8" symbolic="YES" id="pX1-IE-vOj"/>
+                <constraint firstItem="01j-s1-6Tg" firstAttribute="firstBaseline" secondItem="Wch-s1-Scr" secondAttribute="firstBaseline" id="rEZ-go-E1t"/>
+                <constraint firstItem="MUy-Nq-Lve" firstAttribute="centerX" secondItem="01j-s1-6Tg" secondAttribute="centerX" id="sFs-uK-duo"/>
+                <constraint firstItem="IsX-B9-zQf" firstAttribute="trailing" secondItem="mvs-PS-OnJ" secondAttribute="trailing" id="yxK-vm-XTz"/>
+            </constraints>
             <point key="canvasLocation" x="269" y="344"/>
         </view>
     </objects>
@@ -103,9 +216,4 @@
         <image name="play.png" width="100" height="100"/>
         <image name="rewind.png" width="100" height="100"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

@@ -289,6 +289,8 @@ uLong filetime(const char *filename, tm_zip *tmzip, uLong *dostime)
             zip_fileinfo inf = {0};
             filetime(path.UTF8String, &inf.tmz_date, &inf.dosDate);
             int res = zipOpenNewFileInZip(zip, path.lastPathComponent.UTF8String, &inf, NULL, 0, NULL, 0, NULL, Z_DEFLATED, Z_DEFAULT_COMPRESSION);
+            if (res != ZIP_OK)
+                puts("ERROR");
             res = zipWriteInFileInZip(zip, data.bytes, (unsigned int)data.length);
             zipCloseFileInZip(zip);
             if (res != ZIP_OK)

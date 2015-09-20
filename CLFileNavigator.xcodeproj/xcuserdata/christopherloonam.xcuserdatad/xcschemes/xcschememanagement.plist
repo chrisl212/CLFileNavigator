@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>CLFileNavigatorKit copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>CLFileNavigatorKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>AB42CDD31B842DD6009E3A6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB6D499A1BAD181900C97E92</key>
 		<dict>
 			<key>primary</key>
 			<true/>

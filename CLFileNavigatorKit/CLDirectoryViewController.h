@@ -26,5 +26,6 @@ extern NSString *const CLDirectoryViewControllerDateDisplayOption;
 - (id)initWithDirectory:(CLFile *)dir;
 - (id)initWithDirectoryPath:(NSString *)path;
 - (void)refreshFiles;
+- (UIView *)tableFooter;
 
 @end

@@ -150,12 +150,6 @@ NSString *const CLDirectoryViewControllerDateDisplayOption = @"date";
     [super viewDidLoad];
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    /*
-    NSString *placemarkDescription = @"address = { \"localized_address\" = ( { address = { formattedAddressLine = ( ""Piccadilly Circus"", \"Coventry Street\", London, W1J, England ); structuredAddress = { administrativeArea = England; areaOfInterest = ( \"Piccadilly Circus\", \"Great Britain\" ); country = \"United Kingdom\"; countryCode = GB; dependentLocality = ( Mayfair ); fullThoroughfare = \"Coventry Street\"; geoId = ( ); locality = London; postCode = W1J; subAdministrativeArea = London; subLocality = Mayfair; thoroughfare = \"Coventry Street\"; }; }; locale = \"en_US\";";
-    NSString *regex = @"(locale)(\\s+)(=)(\\s+)("".*?"")(;)";
-    NSRange localeRange = [placemarkDescription rangeOfString:regex options:NSRegularExpressionSearch];
-    NSString *locale = [placemarkDescription substringWithRange:localeRange];
-    NSLog(@"%@", locale); */
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -178,7 +172,7 @@ NSString *const CLDirectoryViewControllerDateDisplayOption = @"date";
         dispatch_async(dispatch_get_main_queue(), ^{
             ACAlertView *errorAlert = [ACAlertView alertWithTitle:@"Error" style:ACAlertViewStyleTextView delegate:nil buttonTitles:@[@"Close"]];
             errorAlert.textView.text = error.localizedDescription;
-            [errorAlert show];
+            //[errorAlert show];
         });
     }
     [self.tableView reloadData];
@@ -388,7 +382,7 @@ NSString *const CLDirectoryViewControllerDateDisplayOption = @"date";
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
     CLFile *file = self.files[indexPath.row];
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:file.filePath delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Open as..." otherButtonTitles:@"Properties", @"Compress", @"Copy", @"Cut", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:file.filePath delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Open as..." otherButtonTitles:@"Properties", @"Compress", @"Copy", @"Cut", nil];// @"More...", nil];
     actionSheet.tag = FILEOPTIONS_ACTIONSHEET;
     [actionSheet showInView:self.tableView];
 }
@@ -665,6 +659,10 @@ NSString *const CLDirectoryViewControllerDateDisplayOption = @"date";
             
             [pathsPasteboard setStrings:@[filePath]];
             [modePasteboard setString:mode];
+        }
+        else if ([buttonTitle isEqualToString:@"More..."])
+        {
+
         }
     }
 }
