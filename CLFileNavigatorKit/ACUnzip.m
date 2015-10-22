@@ -11,6 +11,7 @@
 #import "ACUnzip.h"
 #import "unzip.h"
 #import "CLDirectoryViewController.h"
+#import "CLFile.h"
 
 @implementation ACUnzip
 
@@ -280,6 +281,79 @@ bool bzip2_unzip(const char *in_file, char *out_file_name)
         [[NSNotificationCenter defaultCenter] postNotificationName:CLDirectoryViewControllerRefreshNotification object:nil];
     });
     return YES;
+}
+
++ (NSArray *)filesInArchive:(NSString *)file fileType:(ACUnzipFileType)fileType error:(NSError *__autoreleasing *)err
+{
+    NSMutableArray *files = @[].mutableCopy;
+    
+    unzFile zip = unzOpen(file.UTF8String);
+    if (!zip)
+    {
+        if (err)
+            *err = [[NSError alloc] initWithDomain:@"File is not a valid archive" code:-1 userInfo:nil];
+        return nil;
+    }
+    if (unzGoToFirstFile(zip) != UNZ_OK)
+    {
+        unzCloseCurrentFile(zip);
+        unzClose(zip);
+        if (err)
+            *err = [[NSError alloc] initWithDomain:@"File is not a valid zip archive" code:-1 userInfo:nil];
+        return nil;
+    }
+    do
+    {
+        unzOpenCurrentFile(zip);
+        unz_file_info inf;
+        char fileName[512];
+        unzGetCurrentFileInfo(zip, &inf, fileName, 512, NULL, 0, NULL, 0);
+        CLFile *f = [[CLFile alloc] init];
+
+        NSString *filePath = [NSString stringWithUTF8String:fileName];
+    
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        [components setDay:inf.tmu_date.tm_mday];
+        [components setYear:inf.tmu_date.tm_year];
+        [components setMonth:inf.tmu_date.tm_mon];
+        [components setSecond:inf.tmu_date.tm_sec];
+        [components setHour:inf.tmu_date.tm_hour];
+        [components setMinute:inf.tmu_date.tm_min];
+        NSDate *date = [calendar dateFromComponents:components];
+        
+        f.lastModifiedDate = date;
+        
+        f.fileName = filePath.lastPathComponent;
+        f.fileSize = inf.uncompressed_size;
+        f.fileExtension = filePath.pathExtension;
+        f.filePath = filePath;
+        f.directory = NO;
+
+        if (![files containsObject:f])
+            [files addObject:f];
+        
+        if ([filePath rangeOfString:@"/"].location != NSNotFound)
+        {
+            NSString *directories = filePath;
+            NSArray *comps = [filePath componentsSeparatedByString:@"/"];
+            if (![[comps lastObject] isEqualToString:@""])
+                directories = [filePath stringByDeletingLastPathComponent];
+            
+            f.fileName = directories.lastPathComponent;
+            f.fileSize = 0;
+            f.fileExtension = @"";
+            f.filePath = directories;
+            f.directory = YES;
+            if (![files containsObject:f])
+                [files addObject:f];
+        }
+        
+        unzCloseCurrentFile(zip);
+    } while (unzGoToNextFile(zip) != UNZ_END_OF_LIST_OF_FILE);
+    unzClose(zip);
+    
+    return files;
 }
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLFileDisplayViewController.h"
 
 @class CLFile;
 
-@interface CLWebViewController : UIViewController
+@interface CLWebViewController : CLFileDisplayViewController
 
 - (id)initWithFileAtPath:(NSString *)path;
 - (id)initWithFile:(CLFile *)file;

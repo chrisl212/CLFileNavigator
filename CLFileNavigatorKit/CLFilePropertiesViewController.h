@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLFileDisplayViewController.h"
 
 @class CLFile;
 
-@interface CLFilePropertiesViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface CLFilePropertiesViewController : CLFileDisplayViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *tableViewItems;
 @property (strong, nonatomic) CLFile *file;
 

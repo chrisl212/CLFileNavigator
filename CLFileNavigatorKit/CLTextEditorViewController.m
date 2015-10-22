@@ -72,6 +72,8 @@
     UIBarButtonItem *nextItem = [[UIBarButtonItem alloc] initWithTitle:@">" style:UIBarButtonItemStylePlain target:self action:@selector(nextItem)];
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     self.toolbarItems = @[previousItem, flex, nextItem];
+    
+    [self.navigationController setToolbarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,11 +109,6 @@
     [self dismiss];
 }
 
-- (void)dismiss
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)previousItem
 {
     NSInteger currentIndex = [self.items indexOfObject:self.currentItem];
@@ -137,6 +134,28 @@
         self.textView.attributedText = [[NSAttributedString alloc] initWithFileURL:self.currentItem.fileURL options:@{NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType} documentAttributes:nil error:nil];
     else
         self.textView.text = [NSString stringWithContentsOfFile:self.currentItem.filePath encoding:NSUTF8StringEncoding error:nil];
+}
+
+- (UIImage *)hidingIcon
+{
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(50.0, 50.0), NO, 0.0);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextFillRect(context, CGRectMake(0.0, 0.0, 50.0, 50.0));
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:self.currentItem.fileName attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:10.0], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName: paragraphStyle}];
+    [string drawInRect:CGRectMake(2.0, 12.5, 46.0, 25.0)];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 @end

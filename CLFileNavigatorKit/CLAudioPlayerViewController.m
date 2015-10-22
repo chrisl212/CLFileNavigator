@@ -85,6 +85,7 @@
 
 - (void)viewDidLoad
 {
+    self.canHide = YES;
     [super viewDidLoad];
     
     [self becomeFirstResponder];
@@ -113,7 +114,7 @@
     infoUpdateTimer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updateInformation) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:infoUpdateTimer forMode:NSRunLoopCommonModes];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(openFileProperties)];
     self.navigationController.navigationBar.translucent = NO;
     [self updateAudioPlayer];
@@ -129,7 +130,6 @@
 {
     [self.audioPlayer stop];
     [infoUpdateTimer invalidate];
-    [self dismissViewControllerAnimated:YES completion:nil];
     [self resignFirstResponder];
     NSError *error;
     [[AVAudioSession sharedInstance] setActive:NO error:&error];
@@ -145,6 +145,7 @@
     MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
     
     center.nowPlayingInfo = nil;
+    [super dismiss];
 }
 
 - (BOOL)canBecomeFirstResponder
@@ -303,6 +304,43 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     [self nextSong];
+}
+
+- (UIImage *)imageNamed:(NSString *)name imageWithColor:(UIColor *)color
+{
+    UIImage *img = nil;
+    
+    img = [UIImage imageNamed:name];
+    
+    // lets tint the icon - assumes your icons are black
+    UIGraphicsBeginImageContextWithOptions(img.size, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextTranslateCTM(context, 0, img.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    
+    CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
+    
+    // draw alpha-mask
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGContextDrawImage(context, rect, img.CGImage);
+    
+    // draw tint color, preserving alpha values of original image
+    CGContextSetBlendMode(context, kCGBlendModeSourceIn);
+    [color setFill];
+    CGContextFillRect(context, rect);
+    
+    UIImage *coloredImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return coloredImage;
+}
+
+- (UIImage *)hidingIcon
+{
+    if ([self.currentItem.albumArtworkImage isEqual:[UIImage imageNamed:@"noart.png"]])
+        return [self imageNamed:@"music.png" imageWithColor:[UIColor lightGrayColor]];
+    return self.currentItem.albumArtworkImage;
 }
 
 @end

@@ -60,11 +60,6 @@ NSString *const CLImageImageKey = @"img";
     return self;
 }
 
-- (void)dismiss
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -82,6 +77,8 @@ NSString *const CLImageImageKey = @"img";
     UISwipeGestureRecognizer *nextImageGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(nextImage)];
     nextImageGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:nextImageGestureRecognizer];
+    
+    [self.navigationController setToolbarHidden:NO];
 }
 
 - (void)zoom
@@ -142,9 +139,9 @@ NSString *const CLImageImageKey = @"img";
     [self changeImageToIndex:previousIndex];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)didMoveToParentViewController:(UIViewController *)parent
 {
-    [super viewWillAppear:animated];
+    [super didMoveToParentViewController:parent];
     self.navigationController.toolbarHidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     
@@ -193,8 +190,9 @@ NSString *const CLImageImageKey = @"img";
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
         
         UIBarButtonItem *resize = [[UIBarButtonItem alloc] initWithTitle:@"Resize" style:UIBarButtonItemStylePlain target:self action:@selector(resizeImage)];
+        UIBarButtonItem *filters = [[UIBarButtonItem alloc] initWithTitle:@"Filters" style:UIBarButtonItemStylePlain target:self action:@selector(filterImage)];
         
-        self.toolbarItems = @[resize];
+        self.toolbarItems = @[resize, filters];
     }
     else
     {
@@ -264,6 +262,31 @@ NSString *const CLImageImageKey = @"img";
              alert.textField.selectedTextRange = [alertView.textField textRangeFromPosition:[alertView.textField beginningOfDocument] toPosition:[alertView.textField positionFromPosition:alertView.textField.beginningOfDocument offset:[[alertView.textField.text componentsSeparatedByString:@"x"][0] length]]];
          }
      }];
+}
+
+- (void)filterImage
+{
+    CLImageFilterViewController *filterViewController = [[CLImageFilterViewController alloc] initWithImage:self.currentImage delegate:self];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:filterViewController];
+    navController.navigationController.navigationBar.translucent = YES;
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)filterWasAppliedToImage:(UIImage *)image
+{
+    NSInteger index = [self indexOfImage:self.currentImage];
+    NSMutableArray *images = self.images.mutableCopy;
+    [images replaceObjectAtIndex:index withObject:@{CLImageImageKey: image, CLImageFileNameKey: self.images[index][CLImageFileNameKey]}];
+    self.images = [NSArray arrayWithArray:images];
+    
+    [self changeImageToIndex:index];
+}
+
+#pragma mark - Hide
+
+- (UIImage *)hidingIcon
+{
+    return self.currentImage;
 }
 
 @end

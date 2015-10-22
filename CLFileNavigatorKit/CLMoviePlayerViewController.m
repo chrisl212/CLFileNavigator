@@ -27,6 +27,7 @@
 {
     if (self = [super init])
     {
+        self.canHide = NO;
         self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
         self.navigationItem.title = path.lastPathComponent;
         
@@ -49,11 +50,6 @@
 {
     BOOL hidden = (self.navigationController.isNavigationBarHidden) ? NO : YES;
     [self.navigationController setNavigationBarHidden:hidden animated:YES];
-}
-
-- (void)dismiss
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

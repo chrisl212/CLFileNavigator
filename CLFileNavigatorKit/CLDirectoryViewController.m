@@ -304,7 +304,7 @@ NSString *const CLDirectoryViewControllerDateDisplayOption = @"date";
     
     CLFile *selectedFile = self.files[indexPath.row];
     
-    [CLFileOpener openFile:selectedFile sender:self];
+    [[CLFileOpener fileOpener] openFile:selectedFile sender:self];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -704,7 +704,7 @@ NSString *const CLDirectoryViewControllerDateDisplayOption = @"date";
 
 - (void)presentOpenAsForFile:(NSTimer *)path
 {
-    [CLFileOpener openFileAtPath:path.userInfo[@"path"] type:CLFileTypeUnknown sender:self];
+    [[CLFileOpener fileOpener] openFileAtPath:path.userInfo[@"path"] type:CLFileTypeUnknown sender:self];
 }
 
 @end

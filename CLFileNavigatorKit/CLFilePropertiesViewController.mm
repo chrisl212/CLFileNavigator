@@ -58,9 +58,15 @@ public:
 
 - (id)initWithFile:(CLFile *)file
 {
-    if (self = [super initWithStyle:UITableViewStyleGrouped])
+    if (self = [super init])
     {
+        self.canHide = NO;
+
         self.file = file;
+        self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        [self.view addSubview:self.tableView];
         
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
@@ -159,11 +165,6 @@ public:
     [super viewWillAppear:animated];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.title = @"Properties";
-}
-
-- (void)dismiss
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

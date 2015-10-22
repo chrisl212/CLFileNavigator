@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ACAlertView.h"
+#import "CLFileDisplayViewController.h"
 
 @class CLFile;
 

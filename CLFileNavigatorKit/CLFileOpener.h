@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "CLFileDisplayViewController.h"
 
 @class CLFile;
 
-@interface CLFileOpener : NSObject
+@interface CLFileOpener : NSObject <CLFileDisplayDelegate>
 
-+ (void)openFileAtPath:(NSString *)path type:(NSInteger)type sender:(UIViewController *)vc;
-+ (void)openFile:(CLFile *)file sender:(UIViewController *)vc;
++ (id)fileOpener;
+- (void)openFileAtPath:(NSString *)path type:(NSInteger)type sender:(UIViewController *)vc;
+- (void)openFile:(CLFile *)file sender:(UIViewController *)vc;
 
 @end

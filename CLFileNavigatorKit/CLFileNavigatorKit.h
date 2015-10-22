@@ -22,6 +22,7 @@ FOUNDATION_EXPORT const unsigned char CLFileNavigatorKitVersionString[];
 #import <CLFileNavigatorKit/ACAlertView.h>
 #import <CLFileNavigatorKit/ACCircularProgressView.h>
 #import <CLFileNavigatorKit/CLSettingsViewController.h>
+#import <CLFileNavigatorKit/CLIconPackViewController.h>
 #import <CLFileNavigatorKit/CLFileTransfer.h>
 #import <CLFileNavigatorKit/CLFileOpener.h>
 #import <CLFileNavigatorKit/CLImageViewController.h>
@@ -42,3 +43,9 @@ FOUNDATION_EXPORT const unsigned char CLFileNavigatorKitVersionString[];
 #import <CLFileNavigatorKit/unzip.h>
 #import <CLFileNavigatorKit/zip.h>
 #import <CLFileNavigatorKit/bzlib.h>
+#import <CLFileNavigatorKit/CLFilterCell.h>
+#import <CLFileNavigatorKit/CLActionSheet.h>
+#import <CLFileNavigatorKit/CLImageFilterViewController.h>
+#import <CLFileNavigatorKit/CLFileDisplayViewController.h>
+#import <CLFileNavigatorKit/CLZipViewController.h>
+#import <CLFileNavigatorKit/CLMoviePlayerViewController.h>

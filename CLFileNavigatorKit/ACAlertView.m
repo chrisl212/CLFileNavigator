@@ -80,6 +80,25 @@
                 [self addSubview:self.spinner];
                 break;
             }
+                
+            case ACAlertViewStyleTableView:
+            {
+                alertFrame = CGRectMake(0, 0, 250, 300);
+                labelCenter = CGPointMake(CGRectGetMidX(alertFrame), 20);
+                alignment = NSTextAlignmentCenter;
+                self.frame = alertFrame;
+
+                self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 245, 215) style:UITableViewStylePlain];
+                self.tableView.delegate = self;
+                self.tableView.dataSource = self;
+                self.tableView.center = self.center;
+                self.tableView.backgroundColor = [UIColor blackColor];
+                self.tableView.separatorColor = [UIColor whiteColor];
+                self.tableView.alpha = 0.9;
+                
+                [self addSubview:self.tableView];
+                break;
+            }
             
             case ACAlertViewStyleTextField:
                 alertFrame = CGRectMake(0, 0, 250, 125);
@@ -190,11 +209,11 @@
 - (void)clickedButton:(UIButton *)sender
 {
     NSString *buttonTitle = sender.titleLabel.text;
-    if ([buttonTitle isEqualToString:@"Close"] || [buttonTitle isEqualToString:@"Dismiss"] || [buttonTitle isEqualToString:@"Cancel"])
+    if ([buttonTitle isEqualToString:NSLocalizedString(@"Close", NULL)] || [buttonTitle isEqualToString:NSLocalizedString(@"Dismiss", NULL)] || [buttonTitle isEqualToString:NSLocalizedString(@"Dismiss", NULL)])
     {
         [self dismiss];
     }
-    if ([buttonTitle isEqualToString:@"Hide"])
+    if ([buttonTitle isEqualToString:NSLocalizedString(@"Hide", NULL)])
     {
         [self hide];
     }
@@ -363,6 +382,33 @@
 {
     [self.pickerViewButton setTitle:self.pickerViewItems[row] forState:UIControlStateNormal];
     //[self.pickerView setHidden:YES];
+}
+
+#pragma mark - Table View Delegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.tableViewItems.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell)
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    
+    cell.textLabel.text = self.tableViewItems[indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.contentView.backgroundColor = [UIColor blackColor];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.tableViewSelectionHandler)
+        self.tableViewSelectionHandler(self, self.tableViewItems[indexPath.row]);
 }
 
 @end

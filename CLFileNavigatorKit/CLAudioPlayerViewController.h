@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+#import "CLFileDisplayViewController.h"
 
 @class CLFile, CLAudioItem;
 
-@interface CLAudioPlayerViewController : UIViewController <AVAudioPlayerDelegate>
+@interface CLAudioPlayerViewController : CLFileDisplayViewController <AVAudioPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *albumArtworkImageView;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;

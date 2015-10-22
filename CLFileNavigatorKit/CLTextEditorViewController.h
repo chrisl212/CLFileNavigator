@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLFileDisplayViewController.h"
 
 @class CLFile;
 
-@interface CLTextEditorViewController : UIViewController
+@interface CLTextEditorViewController : CLFileDisplayViewController
 
 @property (strong, nonatomic) UITextView *textView;
 @property (strong, nonatomic) NSArray *items;

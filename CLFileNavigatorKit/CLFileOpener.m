@@ -6,31 +6,46 @@
 //  Copyright (c) 2015 Christopher Loonam. All rights reserved.
 //
 
-#import "CLFileOpener.h"
-#import "CLFile.h"
-#import "CLDirectoryViewController.h"
+#import <CLFileNavigatorKit/CLFileNavigatorKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "CLImageViewController.h"
-#import "CLWebViewController.h"
-#import "CLAudioPlayerViewController.h"
-#import "NSFileManager+CLFile.h"
-#import "CLAudioItem.h"
-#import "ACUnzip.h"
-#import "CLTextEditorViewController.h"
-#import "CLMoviePlayerViewController.h"
 
 @implementation CLFileOpener
+{
+    NSMutableArray *fileDisplayControllers;
+    CGRect preHidingNavFrame;
+    CGRect preHidingControllerFrame;
+    CGRect preHidingDisplayFrame;
+}
 
-+ (void)errorAlert:(NSError *)error
++ (id)fileOpener
+{
+    static CLFileOpener *fileOpener = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        fileOpener = [[self alloc] init];
+    });
+    return fileOpener;
+}
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        fileDisplayControllers = @[].mutableCopy;
+    }
+    return self;
+}
+
+- (void)errorAlert:(NSError *)error
 {
     ACAlertView *alertView = [ACAlertView alertWithTitle:@"Error" style:ACAlertViewStyleTextView delegate:nil buttonTitles:@[@"Close"]];
     alertView.textView.text = error.localizedDescription;
     [alertView show];
 }
 
-+ (void)openFileAtPath:(NSString *)path type:(NSInteger)type sender:(UIViewController *)vc
+- (void)openFileAtPath:(NSString *)path type:(NSInteger)type sender:(UIViewController<CLFileDisplayDelegate> *)vc
 {
-    id viewController;
+    CLFileDisplayViewController __block *viewController;
     switch (type)
     {
         case CLFileTypeDirectory:
@@ -201,12 +216,32 @@
             
             if (fileType == ACUnzipFileTypeGZip || fileType == ACUnzipFileTypeBZip2)
                 [ACUnzip decompressFile:path fileType:fileType];
-            else
+            else if (fileType == ACUnzipFileTypeTar)
             {
                 NSString *newDirectoryPath = [path stringByDeletingPathExtension];
                 [ACUnzip decompressFiles:path toDirectory:newDirectoryPath fileType:fileType];
             }
-                
+            else
+            {
+                CLActionSheet *actionSheet = [[CLActionSheet alloc] initWithTitle:path.lastPathComponent delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Unzip" otherButtonTitles:@"Zip Viewer", nil];
+                actionSheet.completionHandler = ^(NSString *buttonTitle)
+                {
+                    if ([buttonTitle isEqualToString:@"Cancel"])
+                        return;
+                    else if ([buttonTitle isEqualToString:@"Unzip"])
+                    {
+                        NSString *newDirectoryPath = [path stringByDeletingPathExtension];
+                        [ACUnzip decompressFiles:path toDirectory:newDirectoryPath fileType:fileType];
+                    }
+                    else
+                    {
+                        viewController = [[CLZipViewController alloc] initWithFile:path];
+                        [self performSelector:@selector(displayController:) withObject:viewController afterDelay:0.5];
+                    }
+                };
+                [actionSheet showInView:vc.view];
+            }
+            
             break;
         }
             
@@ -217,14 +252,73 @@
     if (!viewController)
         return;
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    [vc presentViewController:navController animated:YES completion:nil];
+    [self displayController:viewController];
 }
 
-+ (void)openFile:(CLFile *)file sender:(UIViewController *)vc
+- (void)displayController:(CLFileDisplayViewController *)viewController
+{
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    viewController.fileDisplayDelegate = self;
+    CLFileDisplayView *displayView = [[CLFileDisplayView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    navController.view.frame = [[UIScreen mainScreen] bounds];
+    [displayView addSubview:navController.view];
+    [viewController viewDidAppear:YES];
+    
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    displayView.frame = CGRectMake(0.0, keyWindow.frame.size.height, displayView.frame.size.width, displayView.frame.size.height);
+    [keyWindow addSubview:displayView];
+    [viewController.fileDisplayDelegate fileDisplayControllerWasCreated:(CLFileDisplayViewController *)navController];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        displayView.center = keyWindow.center;
+    }];
+}
+
+- (void)openFile:(CLFile *)file sender:(UIViewController<CLFileDisplayDelegate> *)vc
 {
     [self openFileAtPath:file.filePath type:file.fileType sender:vc];
+}
+
+#pragma mark - File Display Delegate
+
+- (void)fileDisplayControllerWasCreated:(CLFileDisplayViewController *)controller
+{
+    [fileDisplayControllers addObject:controller];
+}
+
+- (void)fileDisplayControllerShouldHide:(CLFileDisplayViewController *)controller
+{
+    preHidingNavFrame = controller.navigationController.view.frame;
+    preHidingControllerFrame = controller.view.frame;
+    preHidingDisplayFrame = controller.navigationController.view.superview.frame;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CLFileDisplayView *displayView = (CLFileDisplayView *)controller.navigationController.view.superview;
+        displayView.frame = CGRectMake(0, 0, 50.0, 50.0);
+        //controller.navigationController.view.frame = CGRectMake(0, 0, 50.0, 50.0);
+        //controller.view.frame = CGRectMake(0, 0, 50.0, 50.0);
+        [controller setHiding:YES];
+        displayView.center = controller.hidingCenter;
+    }];
+}
+
+- (void)fileDisplayControllerShouldUnhide:(CLFileDisplayViewController *)controller
+{
+    CLFileDisplayView *displayView = (CLFileDisplayView *)controller.navigationController.view.superview;
+    UIView *superView = displayView.superview;
+    [superView bringSubviewToFront:displayView];
+    
+    controller.hidingCenter = displayView.center;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        displayView.frame = preHidingDisplayFrame;
+        [controller setHiding:NO];
+    }];
+}
+
+- (void)fileDisplayControllerWasClosed:(CLFileDisplayViewController *)controller
+{
+    [fileDisplayControllers removeObject:controller];
 }
 
 @end

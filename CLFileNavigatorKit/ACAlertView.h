@@ -22,11 +22,14 @@ typedef NS_ENUM(NSInteger, ACAlertViewStyle)
     ACAlertViewStyleTextField, //Loads an alert with a text field for input
     ACAlertViewStylePickerView, //Loads an alert with a picker view
     ACAlertViewStyleTextFieldAndPickerView, //Loads an alert with a text field and picker view
+    ACAlertViewStyleTableView
 };
+
+typedef void (^ACAlertViewTableViewSelectionHandler)(ACAlertView *alertView, NSString *selectedItem);
 
 @protocol ACAlertViewDelegate;
 
-@interface ACAlertView : UIView <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ACAlertView : UIView <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     ACAlertViewCompletionHandler completionHandler;
 }
@@ -34,6 +37,10 @@ typedef NS_ENUM(NSInteger, ACAlertViewStyle)
 @property (strong, nonatomic) UITextView *textView; //The text view of the alert
 
 @property (strong, nonatomic) UILabel *titleLabel; //The label where the title is displayed
+
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSArray *tableViewItems; //array of strings (possibly extend this with blocks for cellForRow: etc. so that the cells can be set up outside of the class
+@property (strong, nonatomic) ACAlertViewTableViewSelectionHandler tableViewSelectionHandler;
 
 @property (strong, nonatomic) ACCircularProgressView *progressView; //The progress view
 @property (strong, nonatomic) UIActivityIndicatorView *spinner; //The spinner

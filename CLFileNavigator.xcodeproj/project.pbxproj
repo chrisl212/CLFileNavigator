@@ -15,7 +15,7 @@
 		AB38E9CC1B93FF4500F73C18 /* archive-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9CA1B93FF4500F73C18 /* archive-50@2x.png */; };
 		AB38E9E21B94EFBA00F73C18 /* DefaultIcons.zip in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9E11B94EFBA00F73C18 /* DefaultIcons.zip */; };
 		AB38E9E31B94EFBA00F73C18 /* DefaultIcons.zip in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9E11B94EFBA00F73C18 /* DefaultIcons.zip */; };
-		AB38E9E81B94F1E500F73C18 /* CLIconPackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB38E9E61B94F1E500F73C18 /* CLIconPackViewController.h */; };
+		AB38E9E81B94F1E500F73C18 /* CLIconPackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB38E9E61B94F1E500F73C18 /* CLIconPackViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB38E9EA1B94F1E500F73C18 /* CLIconPackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB38E9E71B94F1E500F73C18 /* CLIconPackViewController.m */; };
 		AB38E9F11B95041000F73C18 /* file_filled-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9EF1B95041000F73C18 /* file_filled-50@2x.png */; };
 		AB38E9F21B95041000F73C18 /* file_filled-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB38E9EF1B95041000F73C18 /* file_filled-50@2x.png */; };
@@ -49,6 +49,10 @@
 		AB42CE1C1B84D897009E3A6D /* UIImage+CLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CE1A1B84D897009E3A6D /* UIImage+CLFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB42CE1D1B84D897009E3A6D /* UIImage+CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AB42CE1B1B84D897009E3A6D /* UIImage+CLFile.m */; };
 		AB42CE281B84DA18009E3A6D /* FileTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = AB42CDF81B843676009E3A6D /* FileTypes.json */; };
+		AB4AF62F1BB8266F0043F0B7 /* CLFileDisplayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4AF62D1BB8266F0043F0B7 /* CLFileDisplayViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB4AF6301BB8266F0043F0B7 /* CLFileDisplayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4AF62D1BB8266F0043F0B7 /* CLFileDisplayViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB4AF6311BB8266F0043F0B7 /* CLFileDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4AF62E1BB8266F0043F0B7 /* CLFileDisplayViewController.m */; };
+		AB4AF6321BB8266F0043F0B7 /* CLFileDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4AF62E1BB8266F0043F0B7 /* CLFileDisplayViewController.m */; };
 		AB667AFF1B90B5DC0043E285 /* CLFilePropertiesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB667AFD1B90B5DC0043E285 /* CLFilePropertiesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB667B001B90B5DC0043E285 /* CLFilePropertiesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB667AFE1B90B5DC0043E285 /* CLFilePropertiesViewController.mm */; };
 		AB667B031B90D6860043E285 /* CLSettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB667B011B90D6860043E285 /* CLSettingsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,7 +105,7 @@
 		AB6D49CA1BAD181900C97E92 /* CLAudioPlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCB81B861FEF00A5453F /* CLAudioPlayerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49CB1BAD181900C97E92 /* UIImage+CLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CE1A1B84D897009E3A6D /* UIImage+CLFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49CC1BAD181900C97E92 /* CLFilePropertiesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB667AFD1B90B5DC0043E285 /* CLFilePropertiesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB6D49CD1BAD181900C97E92 /* CLIconPackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB38E9E61B94F1E500F73C18 /* CLIconPackViewController.h */; };
+		AB6D49CD1BAD181900C97E92 /* CLIconPackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB38E9E61B94F1E500F73C18 /* CLIconPackViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49CE1BAD181900C97E92 /* CLTextEditorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF4358A1B8A8B9A002D4557 /* CLTextEditorViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49CF1BAD181900C97E92 /* ACUnzip.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCF81B8788A900A5453F /* ACUnzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49D01BAD181900C97E92 /* CLImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBCAD1B8527AE00A5453F /* CLImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -118,7 +122,7 @@
 		AB6D49DB1BAD181900C97E92 /* ioapi_buf.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD291B8788EC00A5453F /* ioapi_buf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49DC1BAD181900C97E92 /* ioapi_mem.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD2B1B8788EC00A5453F /* ioapi_mem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49DD1BAD181900C97E92 /* bzlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD011B8788A900A5453F /* bzlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB6D49DE1BAD181900C97E92 /* CLMoviePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */; };
+		AB6D49DE1BAD181900C97E92 /* CLMoviePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49DF1BAD181900C97E92 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD271B8788EC00A5453F /* ioapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49E01BAD181900C97E92 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD2D1B8788EC00A5453F /* unzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6D49E11BAD181900C97E92 /* CLFileNavigatorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AB42CDCE1B842DD6009E3A6D /* CLFileNavigatorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -170,10 +174,18 @@
 		AB6D4A331BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */; };
 		AB6D4A341BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */; };
 		AB6D4A351BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */; };
-		AB7BA7611BA5BCCE00F4956F /* CLMoviePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */; };
+		AB7BA7611BA5BCCE00F4956F /* CLMoviePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB7BA7621BA5BCCE00F4956F /* CLMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7BA7601BA5BCCE00F4956F /* CLMoviePlayerViewController.m */; };
 		AB8AFB0A1B91030900246EBC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBFBD3B1B878CE400A5453F /* libz.dylib */; };
 		AB8AFB0D1B91032F00246EBC /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB667B541B90FE0F0043E285 /* libstdc++.6.dylib */; };
+		AB8B0CA31BD1F1AA00EAD62E /* CLZipViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8B0CA11BD1F1AA00EAD62E /* CLZipViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8B0CA41BD1F1AA00EAD62E /* CLZipViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8B0CA11BD1F1AA00EAD62E /* CLZipViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8B0CA51BD1F1AA00EAD62E /* CLZipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8B0CA21BD1F1AA00EAD62E /* CLZipViewController.m */; };
+		AB8B0CA61BD1F1AA00EAD62E /* CLZipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8B0CA21BD1F1AA00EAD62E /* CLZipViewController.m */; };
+		AB8B0CA91BD1F6C800EAD62E /* CLActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8B0CA71BD1F6C800EAD62E /* CLActionSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8B0CAA1BD1F6C800EAD62E /* CLActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8B0CA71BD1F6C800EAD62E /* CLActionSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB8B0CAB1BD1F6C800EAD62E /* CLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8B0CA81BD1F6C800EAD62E /* CLActionSheet.m */; };
+		AB8B0CAC1BD1F6C800EAD62E /* CLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8B0CA81BD1F6C800EAD62E /* CLActionSheet.m */; };
 		ABA1F1301B8CC2DB00DCD901 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA1F12F1B8CC2DB00DCD901 /* MultipeerConnectivity.framework */; };
 		ABBFBC9D1B8506BE00A5453F /* ACAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBC9B1B8506BE00A5453F /* ACAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBFBC9E1B8506BE00A5453F /* ACAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBC9C1B8506BE00A5453F /* ACAlertView.m */; };
@@ -246,8 +258,46 @@
 		ABBFBD391B8788EC00A5453F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = ABBFBD2E1B8788EC00A5453F /* zip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		ABBFBD3A1B8788EC00A5453F /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBFBD2F1B8788EC00A5453F /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBFBD3C1B878CE500A5453F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBFBD3B1B878CE400A5453F /* libz.dylib */; };
+		ABDDF00F1BB8455B009C1C41 /* minimize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0091BB8455B009C1C41 /* minimize@2x.png */; };
+		ABDDF0101BB8455B009C1C41 /* minimize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0091BB8455B009C1C41 /* minimize@2x.png */; };
+		ABDDF0111BB8455B009C1C41 /* minimize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0091BB8455B009C1C41 /* minimize@2x.png */; };
+		ABDDF0121BB8455B009C1C41 /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00A1BB8455B009C1C41 /* minimize.png */; };
+		ABDDF0131BB8455B009C1C41 /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00A1BB8455B009C1C41 /* minimize.png */; };
+		ABDDF0141BB8455B009C1C41 /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00A1BB8455B009C1C41 /* minimize.png */; };
+		ABDDF0151BB8455B009C1C41 /* minimize@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00B1BB8455B009C1C41 /* minimize@3x.png */; };
+		ABDDF0161BB8455B009C1C41 /* minimize@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00B1BB8455B009C1C41 /* minimize@3x.png */; };
+		ABDDF0171BB8455B009C1C41 /* minimize@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00B1BB8455B009C1C41 /* minimize@3x.png */; };
+		ABDDF0181BB8455B009C1C41 /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00C1BB8455B009C1C41 /* close@3x.png */; };
+		ABDDF0191BB8455B009C1C41 /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00C1BB8455B009C1C41 /* close@3x.png */; };
+		ABDDF01A1BB8455B009C1C41 /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00C1BB8455B009C1C41 /* close@3x.png */; };
+		ABDDF01B1BB8455B009C1C41 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00D1BB8455B009C1C41 /* close.png */; };
+		ABDDF01C1BB8455B009C1C41 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00D1BB8455B009C1C41 /* close.png */; };
+		ABDDF01D1BB8455B009C1C41 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00D1BB8455B009C1C41 /* close.png */; };
+		ABDDF01E1BB8455B009C1C41 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00E1BB8455B009C1C41 /* close@2x.png */; };
+		ABDDF01F1BB8455B009C1C41 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00E1BB8455B009C1C41 /* close@2x.png */; };
+		ABDDF0201BB8455B009C1C41 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF00E1BB8455B009C1C41 /* close@2x.png */; };
+		ABDDF0371BB84707009C1C41 /* music@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0341BB84707009C1C41 /* music@3x.png */; };
+		ABDDF0381BB84707009C1C41 /* music@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0341BB84707009C1C41 /* music@3x.png */; };
+		ABDDF0391BB84707009C1C41 /* music@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0341BB84707009C1C41 /* music@3x.png */; };
+		ABDDF03A1BB84707009C1C41 /* music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0351BB84707009C1C41 /* music@2x.png */; };
+		ABDDF03B1BB84707009C1C41 /* music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0351BB84707009C1C41 /* music@2x.png */; };
+		ABDDF03C1BB84707009C1C41 /* music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0351BB84707009C1C41 /* music@2x.png */; };
+		ABDDF03D1BB84707009C1C41 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0361BB84707009C1C41 /* music.png */; };
+		ABDDF03E1BB84707009C1C41 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0361BB84707009C1C41 /* music.png */; };
+		ABDDF03F1BB84707009C1C41 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDDF0361BB84707009C1C41 /* music.png */; };
 		ABF4358C1B8A8B9A002D4557 /* CLTextEditorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF4358A1B8A8B9A002D4557 /* CLTextEditorViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF4358D1B8A8B9A002D4557 /* CLTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF4358B1B8A8B9A002D4557 /* CLTextEditorViewController.m */; };
+		ABF472211BC4939500B1A2FC /* CLImageFilterViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF4721F1BC4939500B1A2FC /* CLImageFilterViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF472221BC4939500B1A2FC /* CLImageFilterViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF4721F1BC4939500B1A2FC /* CLImageFilterViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF472231BC4939500B1A2FC /* CLImageFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF472201BC4939500B1A2FC /* CLImageFilterViewController.m */; };
+		ABF472241BC4939500B1A2FC /* CLImageFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF472201BC4939500B1A2FC /* CLImageFilterViewController.m */; };
+		ABF472281BC4950200B1A2FC /* CLFilterCell.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF472251BC4950200B1A2FC /* CLFilterCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF472291BC4950200B1A2FC /* CLFilterCell.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF472251BC4950200B1A2FC /* CLFilterCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF4722B1BC4950200B1A2FC /* CLFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF472261BC4950200B1A2FC /* CLFilterCell.m */; };
+		ABF4722C1BC4950200B1A2FC /* CLFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF472261BC4950200B1A2FC /* CLFilterCell.m */; };
+		ABF4722D1BC4950200B1A2FC /* CLFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF472271BC4950200B1A2FC /* CLFilterCell.xib */; };
+		ABF4722E1BC4950200B1A2FC /* CLFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF472271BC4950200B1A2FC /* CLFilterCell.xib */; };
+		ABF4722F1BC4950200B1A2FC /* CLFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF472271BC4950200B1A2FC /* CLFilterCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +359,8 @@
 		AB42CE181B84D5A4009E3A6D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AB42CE1A1B84D897009E3A6D /* UIImage+CLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CLFile.h"; sourceTree = "<group>"; };
 		AB42CE1B1B84D897009E3A6D /* UIImage+CLFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CLFile.m"; sourceTree = "<group>"; };
+		AB4AF62D1BB8266F0043F0B7 /* CLFileDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFileDisplayViewController.h; sourceTree = "<group>"; };
+		AB4AF62E1BB8266F0043F0B7 /* CLFileDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFileDisplayViewController.m; sourceTree = "<group>"; };
 		AB667AFD1B90B5DC0043E285 /* CLFilePropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFilePropertiesViewController.h; sourceTree = "<group>"; };
 		AB667AFE1B90B5DC0043E285 /* CLFilePropertiesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CLFilePropertiesViewController.mm; sourceTree = "<group>"; };
 		AB667B011B90D6860043E285 /* CLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSettingsViewController.h; sourceTree = "<group>"; };
@@ -328,6 +380,10 @@
 		AB6D4A321BAD291A00C97E92 /* installing_updates-50@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "installing_updates-50@3x.png"; sourceTree = "<group>"; };
 		AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMoviePlayerViewController.h; sourceTree = "<group>"; };
 		AB7BA7601BA5BCCE00F4956F /* CLMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMoviePlayerViewController.m; sourceTree = "<group>"; };
+		AB8B0CA11BD1F1AA00EAD62E /* CLZipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLZipViewController.h; sourceTree = "<group>"; };
+		AB8B0CA21BD1F1AA00EAD62E /* CLZipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLZipViewController.m; sourceTree = "<group>"; };
+		AB8B0CA71BD1F6C800EAD62E /* CLActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLActionSheet.h; sourceTree = "<group>"; };
+		AB8B0CA81BD1F6C800EAD62E /* CLActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLActionSheet.m; sourceTree = "<group>"; };
 		ABA1F12F1B8CC2DB00DCD901 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		ABBFBC9B1B8506BE00A5453F /* ACAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlertView.h; sourceTree = "<group>"; };
 		ABBFBC9C1B8506BE00A5453F /* ACAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlertView.m; sourceTree = "<group>"; };
@@ -388,8 +444,22 @@
 		ABBFBD2E1B8788EC00A5453F /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
 		ABBFBD2F1B8788EC00A5453F /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		ABBFBD3B1B878CE400A5453F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		ABDDF0091BB8455B009C1C41 /* minimize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minimize@2x.png"; sourceTree = "<group>"; };
+		ABDDF00A1BB8455B009C1C41 /* minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minimize.png; sourceTree = "<group>"; };
+		ABDDF00B1BB8455B009C1C41 /* minimize@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minimize@3x.png"; sourceTree = "<group>"; };
+		ABDDF00C1BB8455B009C1C41 /* close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@3x.png"; sourceTree = "<group>"; };
+		ABDDF00D1BB8455B009C1C41 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		ABDDF00E1BB8455B009C1C41 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		ABDDF0341BB84707009C1C41 /* music@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "music@3x.png"; path = "../music@3x.png"; sourceTree = "<group>"; };
+		ABDDF0351BB84707009C1C41 /* music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "music@2x.png"; path = "../music@2x.png"; sourceTree = "<group>"; };
+		ABDDF0361BB84707009C1C41 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music.png; path = ../music.png; sourceTree = "<group>"; };
 		ABF4358A1B8A8B9A002D4557 /* CLTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTextEditorViewController.h; sourceTree = "<group>"; };
 		ABF4358B1B8A8B9A002D4557 /* CLTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTextEditorViewController.m; sourceTree = "<group>"; };
+		ABF4721F1BC4939500B1A2FC /* CLImageFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLImageFilterViewController.h; sourceTree = "<group>"; };
+		ABF472201BC4939500B1A2FC /* CLImageFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLImageFilterViewController.m; sourceTree = "<group>"; };
+		ABF472251BC4950200B1A2FC /* CLFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFilterCell.h; sourceTree = "<group>"; };
+		ABF472261BC4950200B1A2FC /* CLFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFilterCell.m; sourceTree = "<group>"; };
+		ABF472271BC4950200B1A2FC /* CLFilterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLFilterCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,6 +603,8 @@
 			isa = PBXGroup;
 			children = (
 				AB42CDCE1B842DD6009E3A6D /* CLFileNavigatorKit.h */,
+				AB8B0CA71BD1F6C800EAD62E /* CLActionSheet.h */,
+				AB8B0CA81BD1F6C800EAD62E /* CLActionSheet.m */,
 				AB38E9EE1B9503B800F73C18 /* Defaults */,
 				ABBFBD221B8788B400A5453F /* ACZip/Unzip */,
 				AB38E9ED1B9503AB00F73C18 /* Alert View */,
@@ -583,13 +655,17 @@
 		ABBFBCAC1B85272000A5453F /* File Editors */ = {
 			isa = PBXGroup;
 			children = (
+				AB4AF62D1BB8266F0043F0B7 /* CLFileDisplayViewController.h */,
+				AB4AF62E1BB8266F0043F0B7 /* CLFileDisplayViewController.m */,
+				ABDDF0211BB84560009C1C41 /* File Display VC Resources */,
 				ABBFBCA81B85244400A5453F /* CLFileOpener.h */,
 				ABBFBCA91B85244400A5453F /* CLFileOpener.m */,
+				AB8B0CA11BD1F1AA00EAD62E /* CLZipViewController.h */,
+				AB8B0CA21BD1F1AA00EAD62E /* CLZipViewController.m */,
 				AB7BA75F1BA5BCCE00F4956F /* CLMoviePlayerViewController.h */,
 				AB7BA7601BA5BCCE00F4956F /* CLMoviePlayerViewController.m */,
 				ABBFBCB11B85302900A5453F /* transparency@2x.jpg */,
-				ABBFBCAD1B8527AE00A5453F /* CLImageViewController.h */,
-				ABBFBCAE1B8527AE00A5453F /* CLImageViewController.m */,
+				ABF472331BC4979A00B1A2FC /* Image View Controller */,
 				ABBFBCB41B8537E200A5453F /* CLWebViewController.h */,
 				ABBFBCB51B8537E200A5453F /* CLWebViewController.m */,
 				ABF4358A1B8A8B9A002D4557 /* CLTextEditorViewController.h */,
@@ -609,6 +685,9 @@
 		ABBFBCC21B8632B600A5453F /* Audio Player Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ABDDF0341BB84707009C1C41 /* music@3x.png */,
+				ABDDF0351BB84707009C1C41 /* music@2x.png */,
+				ABDDF0361BB84707009C1C41 /* music.png */,
 				ABBFBCEE1B86405800A5453F /* noart@2x.png */,
 				ABBFBCEF1B86405800A5453F /* noart@3x.png */,
 				ABBFBCCB1B86332500A5453F /* fast-forward@2x.png */,
@@ -678,6 +757,33 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		ABDDF0211BB84560009C1C41 /* File Display VC Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ABDDF0091BB8455B009C1C41 /* minimize@2x.png */,
+				ABDDF00A1BB8455B009C1C41 /* minimize.png */,
+				ABDDF00B1BB8455B009C1C41 /* minimize@3x.png */,
+				ABDDF00C1BB8455B009C1C41 /* close@3x.png */,
+				ABDDF00D1BB8455B009C1C41 /* close.png */,
+				ABDDF00E1BB8455B009C1C41 /* close@2x.png */,
+			);
+			name = "File Display VC Resources";
+			sourceTree = "<group>";
+		};
+		ABF472331BC4979A00B1A2FC /* Image View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ABBFBCAD1B8527AE00A5453F /* CLImageViewController.h */,
+				ABBFBCAE1B8527AE00A5453F /* CLImageViewController.m */,
+				ABF472251BC4950200B1A2FC /* CLFilterCell.h */,
+				ABF472261BC4950200B1A2FC /* CLFilterCell.m */,
+				ABF472271BC4950200B1A2FC /* CLFilterCell.xib */,
+				ABF4721F1BC4939500B1A2FC /* CLImageFilterViewController.h */,
+				ABF472201BC4939500B1A2FC /* CLImageFilterViewController.m */,
+			);
+			name = "Image View Controller";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -690,12 +796,13 @@
 				ABBFBCBA1B861FEF00A5453F /* CLAudioPlayerViewController.h in Headers */,
 				AB42CE1C1B84D897009E3A6D /* UIImage+CLFile.h in Headers */,
 				AB667AFF1B90B5DC0043E285 /* CLFilePropertiesViewController.h in Headers */,
-				AB38E9E81B94F1E500F73C18 /* CLIconPackViewController.h in Headers */,
 				ABF4358C1B8A8B9A002D4557 /* CLTextEditorViewController.h in Headers */,
 				ABBFBD0D1B8788A900A5453F /* ACUnzip.h in Headers */,
 				ABBFBCAF1B8527AE00A5453F /* CLImageViewController.h in Headers */,
 				AB6A5BCC1B8E6B560084A3C9 /* CLFileTransfer.h in Headers */,
 				ABBFBCAA1B85244400A5453F /* CLFileOpener.h in Headers */,
+				ABF472281BC4950200B1A2FC /* CLFilterCell.h in Headers */,
+				ABF472211BC4939500B1A2FC /* CLImageFilterViewController.h in Headers */,
 				AB42CE001B84C84B009E3A6D /* NSFileManager+CLFile.h in Headers */,
 				ABBFBD0F1B8788A900A5453F /* ACZip.h in Headers */,
 				ABBFBD1D1B8788A900A5453F /* NSFileManager+Tar.h in Headers */,
@@ -707,8 +814,12 @@
 				ABBFBD341B8788EC00A5453F /* ioapi_buf.h in Headers */,
 				ABBFBD361B8788EC00A5453F /* ioapi_mem.h in Headers */,
 				ABBFBD161B8788A900A5453F /* bzlib.h in Headers */,
-				AB7BA7611BA5BCCE00F4956F /* CLMoviePlayerViewController.h in Headers */,
 				ABBFBD321B8788EC00A5453F /* ioapi.h in Headers */,
+				AB38E9E81B94F1E500F73C18 /* CLIconPackViewController.h in Headers */,
+				AB4AF62F1BB8266F0043F0B7 /* CLFileDisplayViewController.h in Headers */,
+				AB8B0CA91BD1F6C800EAD62E /* CLActionSheet.h in Headers */,
+				AB8B0CA31BD1F1AA00EAD62E /* CLZipViewController.h in Headers */,
+				AB7BA7611BA5BCCE00F4956F /* CLMoviePlayerViewController.h in Headers */,
 				ABBFBD381B8788EC00A5453F /* unzip.h in Headers */,
 				AB42CDCF1B842DD6009E3A6D /* CLFileNavigatorKit.h in Headers */,
 				AB42CDF51B843522009E3A6D /* CLFileCell.h in Headers */,
@@ -727,12 +838,13 @@
 				AB6D49CA1BAD181900C97E92 /* CLAudioPlayerViewController.h in Headers */,
 				AB6D49CB1BAD181900C97E92 /* UIImage+CLFile.h in Headers */,
 				AB6D49CC1BAD181900C97E92 /* CLFilePropertiesViewController.h in Headers */,
-				AB6D49CD1BAD181900C97E92 /* CLIconPackViewController.h in Headers */,
 				AB6D49CE1BAD181900C97E92 /* CLTextEditorViewController.h in Headers */,
 				AB6D49CF1BAD181900C97E92 /* ACUnzip.h in Headers */,
 				AB6D49D01BAD181900C97E92 /* CLImageViewController.h in Headers */,
 				AB6D49D11BAD181900C97E92 /* CLFileTransfer.h in Headers */,
 				AB6D49D21BAD181900C97E92 /* CLFileOpener.h in Headers */,
+				ABF472291BC4950200B1A2FC /* CLFilterCell.h in Headers */,
+				ABF472221BC4939500B1A2FC /* CLImageFilterViewController.h in Headers */,
 				AB6D49D31BAD181900C97E92 /* NSFileManager+CLFile.h in Headers */,
 				AB6D49D41BAD181900C97E92 /* ACZip.h in Headers */,
 				AB6D49D51BAD181900C97E92 /* NSFileManager+Tar.h in Headers */,
@@ -744,10 +856,14 @@
 				AB6D49DB1BAD181900C97E92 /* ioapi_buf.h in Headers */,
 				AB6D49DC1BAD181900C97E92 /* ioapi_mem.h in Headers */,
 				AB6D49DD1BAD181900C97E92 /* bzlib.h in Headers */,
-				AB6D49DE1BAD181900C97E92 /* CLMoviePlayerViewController.h in Headers */,
 				AB6D49DF1BAD181900C97E92 /* ioapi.h in Headers */,
+				AB4AF6301BB8266F0043F0B7 /* CLFileDisplayViewController.h in Headers */,
 				AB6D49E01BAD181900C97E92 /* unzip.h in Headers */,
+				AB8B0CAA1BD1F6C800EAD62E /* CLActionSheet.h in Headers */,
+				AB8B0CA41BD1F1AA00EAD62E /* CLZipViewController.h in Headers */,
+				AB6D49DE1BAD181900C97E92 /* CLMoviePlayerViewController.h in Headers */,
 				AB6D49E11BAD181900C97E92 /* CLFileNavigatorKit.h in Headers */,
+				AB6D49CD1BAD181900C97E92 /* CLIconPackViewController.h in Headers */,
 				AB6D49E21BAD181900C97E92 /* CLFileCell.h in Headers */,
 				AB6D49E31BAD181900C97E92 /* CLFile.h in Headers */,
 				AB6D49E41BAD181900C97E92 /* ACAlertView.h in Headers */,
@@ -860,6 +976,8 @@
 				ABBFBCE51B863A5700A5453F /* fast-forward@2x.png in Resources */,
 				ABBFBCE61B863A5700A5453F /* pause@2x.png in Resources */,
 				AB6D4A131BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */,
+				ABDDF0121BB8455B009C1C41 /* minimize.png in Resources */,
+				ABDDF03D1BB84707009C1C41 /* music.png in Resources */,
 				ABBFBCE71B863A5700A5453F /* play@2x.png in Resources */,
 				AB38E9E21B94EFBA00F73C18 /* DefaultIcons.zip in Resources */,
 				ABBFBCF61B86408500A5453F /* noart@2x.png in Resources */,
@@ -870,10 +988,14 @@
 				AB38E9F31B95041000F73C18 /* file-50@2x.png in Resources */,
 				ABBFBCE91B863A5700A5453F /* fast-forward@3x.png in Resources */,
 				ABBFBCF71B86408500A5453F /* noart@3x.png in Resources */,
+				ABDDF00F1BB8455B009C1C41 /* minimize@2x.png in Resources */,
+				ABDDF01E1BB8455B009C1C41 /* close@2x.png in Resources */,
 				AB6D4A1E1BAD289B00C97E92 /* file_filled-50@3x.png in Resources */,
 				ABBFBCEA1B863A5700A5453F /* pause@3x.png in Resources */,
+				ABDDF01B1BB8455B009C1C41 /* close.png in Resources */,
 				ABBFBCEB1B863A5700A5453F /* play@3x.png in Resources */,
 				AB6D4A2C1BAD28EC00C97E92 /* archive-50@3x.png in Resources */,
+				ABDDF03A1BB84707009C1C41 /* music@2x.png in Resources */,
 				AB6D4A331BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */,
 				ABBFBCEC1B863A5700A5453F /* rewind@3x.png in Resources */,
 				ABBFBCED1B863A5700A5453F /* CLAudioPlayerViewController.xib in Resources */,
@@ -884,9 +1006,13 @@
 				AB38E9F71B95048400F73C18 /* medium_icons_filled-50@2x.png in Resources */,
 				AB38E9CB1B93FF4500F73C18 /* archive-50@2x.png in Resources */,
 				ABBFBCB31B85321800A5453F /* transparency@2x.jpg in Resources */,
+				ABDDF0181BB8455B009C1C41 /* close@3x.png in Resources */,
+				ABDDF0371BB84707009C1C41 /* music@3x.png in Resources */,
 				AB42CE021B84CDA7009E3A6D /* CLFileCell.xib in Resources */,
+				ABF4722D1BC4950200B1A2FC /* CLFilterCell.xib in Resources */,
 				AB42CDB01B842DAB009E3A6D /* LaunchScreen.xib in Resources */,
 				AB42CDAD1B842DAB009E3A6D /* Images.xcassets in Resources */,
+				ABDDF0151BB8455B009C1C41 /* minimize@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,8 +1021,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB38E9FD1B9507BA00F73C18 /* installing_updates-50@2x.png in Resources */,
+				ABF4722E1BC4950200B1A2FC /* CLFilterCell.xib in Resources */,
 				AB38E9F41B95041000F73C18 /* file-50@2x.png in Resources */,
 				AB6D4A171BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */,
+				ABDDF03E1BB84707009C1C41 /* music.png in Resources */,
 				AB6D4A341BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */,
 				AB6D4A141BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */,
 				ABBFBCC71B8632B600A5453F /* fast-forward@3x.png in Resources */,
@@ -906,12 +1034,17 @@
 				AB38E9CC1B93FF4500F73C18 /* archive-50@2x.png in Resources */,
 				AB38E9E31B94EFBA00F73C18 /* DefaultIcons.zip in Resources */,
 				AB6D4A221BAD289B00C97E92 /* file-50@3x.png in Resources */,
+				ABDDF0191BB8455B009C1C41 /* close@3x.png in Resources */,
 				ABBFBCD01B86332500A5453F /* pause@2x.png in Resources */,
 				ABBFBCC81B8632B600A5453F /* pause@3x.png in Resources */,
+				ABDDF01F1BB8455B009C1C41 /* close@2x.png in Resources */,
 				ABBFBCF01B86405800A5453F /* noart@2x.png in Resources */,
+				ABDDF0161BB8455B009C1C41 /* minimize@3x.png in Resources */,
 				ABBFBCD11B86332500A5453F /* play@2x.png in Resources */,
+				ABDDF0101BB8455B009C1C41 /* minimize@2x.png in Resources */,
 				AB38E9FA1B95048400F73C18 /* medium_icons-50@2x.png in Resources */,
 				AB38E9F21B95041000F73C18 /* file_filled-50@2x.png in Resources */,
+				ABDDF0131BB8455B009C1C41 /* minimize.png in Resources */,
 				ABBFBCCF1B86332500A5453F /* fast-forward@2x.png in Resources */,
 				ABBFBCBD1B8620A100A5453F /* CLAudioPlayerViewController.xib in Resources */,
 				AB6D4A1F1BAD289B00C97E92 /* file_filled-50@3x.png in Resources */,
@@ -920,8 +1053,11 @@
 				AB42CDF71B843522009E3A6D /* CLFileCell.xib in Resources */,
 				AB42CDF91B843676009E3A6D /* FileTypes.json in Resources */,
 				ABBFBCF11B86405800A5453F /* noart@3x.png in Resources */,
+				ABDDF03B1BB84707009C1C41 /* music@2x.png in Resources */,
+				ABDDF0381BB84707009C1C41 /* music@3x.png in Resources */,
 				AB6D4A301BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */,
 				ABBFBCD21B86332500A5453F /* rewind@2x.png in Resources */,
+				ABDDF01C1BB8455B009C1C41 /* close.png in Resources */,
 				AB6D4A2D1BAD28EC00C97E92 /* archive-50@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -931,8 +1067,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB6D49E71BAD181900C97E92 /* installing_updates-50@2x.png in Resources */,
+				ABF4722F1BC4950200B1A2FC /* CLFilterCell.xib in Resources */,
 				AB6D49E81BAD181900C97E92 /* file-50@2x.png in Resources */,
 				AB6D4A181BAD285C00C97E92 /* medium_icons-50@3x.png in Resources */,
+				ABDDF03F1BB84707009C1C41 /* music.png in Resources */,
 				AB6D4A351BAD291A00C97E92 /* installing_updates-50@3x.png in Resources */,
 				AB6D4A151BAD285C00C97E92 /* medium_icons_filled-50@3x.png in Resources */,
 				AB6D49E91BAD181900C97E92 /* fast-forward@3x.png in Resources */,
@@ -942,12 +1080,17 @@
 				AB6D49ED1BAD181900C97E92 /* archive-50@2x.png in Resources */,
 				AB6D49EE1BAD181900C97E92 /* DefaultIcons.zip in Resources */,
 				AB6D4A231BAD289B00C97E92 /* file-50@3x.png in Resources */,
+				ABDDF01A1BB8455B009C1C41 /* close@3x.png in Resources */,
 				AB6D49EF1BAD181900C97E92 /* pause@2x.png in Resources */,
 				AB6D49F01BAD181900C97E92 /* pause@3x.png in Resources */,
+				ABDDF0201BB8455B009C1C41 /* close@2x.png in Resources */,
 				AB6D49F11BAD181900C97E92 /* noart@2x.png in Resources */,
+				ABDDF0171BB8455B009C1C41 /* minimize@3x.png in Resources */,
 				AB6D49F21BAD181900C97E92 /* play@2x.png in Resources */,
+				ABDDF0111BB8455B009C1C41 /* minimize@2x.png in Resources */,
 				AB6D49F31BAD181900C97E92 /* medium_icons-50@2x.png in Resources */,
 				AB6D49F41BAD181900C97E92 /* file_filled-50@2x.png in Resources */,
+				ABDDF0141BB8455B009C1C41 /* minimize.png in Resources */,
 				AB6D49F51BAD181900C97E92 /* fast-forward@2x.png in Resources */,
 				AB6D49F61BAD181900C97E92 /* CLAudioPlayerViewController.xib in Resources */,
 				AB6D4A201BAD289B00C97E92 /* file_filled-50@3x.png in Resources */,
@@ -956,8 +1099,11 @@
 				AB6D49F91BAD181900C97E92 /* CLFileCell.xib in Resources */,
 				AB6D49FA1BAD181900C97E92 /* FileTypes.json in Resources */,
 				AB6D49FB1BAD181900C97E92 /* noart@3x.png in Resources */,
+				ABDDF03C1BB84707009C1C41 /* music@2x.png in Resources */,
+				ABDDF0391BB84707009C1C41 /* music@3x.png in Resources */,
 				AB6D4A311BAD28EC00C97E92 /* bluetooth-50@3x.png in Resources */,
 				AB6D49FC1BAD181900C97E92 /* rewind@2x.png in Resources */,
+				ABDDF01D1BB8455B009C1C41 /* close.png in Resources */,
 				AB6D4A2E1BAD28EC00C97E92 /* archive-50@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,13 +1124,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8B0CAB1BD1F6C800EAD62E /* CLActionSheet.m in Sources */,
 				ABBFBD391B8788EC00A5453F /* zip.c in Sources */,
 				ABBFBD331B8788EC00A5453F /* ioapi_buf.c in Sources */,
 				ABBFBD1C1B8788A900A5453F /* mk251.c in Sources */,
 				ABBFBD211B8788A900A5453F /* unzcrash.c in Sources */,
 				ABF4358D1B8A8B9A002D4557 /* CLTextEditorViewController.m in Sources */,
 				ABBFBCB01B8527AE00A5453F /* CLImageViewController.m in Sources */,
+				ABF472231BC4939500B1A2FC /* CLImageFilterViewController.m in Sources */,
 				AB42CDF11B842E4F009E3A6D /* CLFile.m in Sources */,
+				ABF4722B1BC4950200B1A2FC /* CLFilterCell.m in Sources */,
 				ABBFBCB71B8537E200A5453F /* CLWebViewController.m in Sources */,
 				AB667B001B90B5DC0043E285 /* CLFilePropertiesViewController.mm in Sources */,
 				ABBFBD151B8788A900A5453F /* bzlib.c in Sources */,
@@ -1006,6 +1155,7 @@
 				ABBFBC9E1B8506BE00A5453F /* ACAlertView.m in Sources */,
 				AB6A5BCD1B8E6B560084A3C9 /* CLFileTransfer.m in Sources */,
 				AB42CDED1B842E0B009E3A6D /* CLDirectoryViewController.m in Sources */,
+				AB8B0CA51BD1F1AA00EAD62E /* CLZipViewController.m in Sources */,
 				ABBFBD1B1B8788A900A5453F /* huffman.c in Sources */,
 				ABBFBD0E1B8788A900A5453F /* ACUnzip.m in Sources */,
 				ABBFBD131B8788A900A5453F /* bzip2recover.c in Sources */,
@@ -1014,6 +1164,7 @@
 				ABBFBD1E1B8788A900A5453F /* NSFileManager+Tar.m in Sources */,
 				ABBFBCA21B8506E200A5453F /* ACCircularProgressView.m in Sources */,
 				ABBFBD191B8788A900A5453F /* decompress.c in Sources */,
+				AB4AF6311BB8266F0043F0B7 /* CLFileDisplayViewController.m in Sources */,
 				AB42CE011B84C84B009E3A6D /* NSFileManager+CLFile.m in Sources */,
 				AB667B041B90D6860043E285 /* CLSettingsViewController.m in Sources */,
 				ABBFBD121B8788A900A5453F /* bzip2.c in Sources */,
@@ -1024,13 +1175,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8B0CAC1BD1F6C800EAD62E /* CLActionSheet.m in Sources */,
 				AB6D499C1BAD181900C97E92 /* zip.c in Sources */,
 				AB6D499D1BAD181900C97E92 /* ioapi_buf.c in Sources */,
 				AB6D499E1BAD181900C97E92 /* mk251.c in Sources */,
 				AB6D499F1BAD181900C97E92 /* unzcrash.c in Sources */,
 				AB6D49A01BAD181900C97E92 /* CLTextEditorViewController.m in Sources */,
 				AB6D49A11BAD181900C97E92 /* CLImageViewController.m in Sources */,
+				ABF472241BC4939500B1A2FC /* CLImageFilterViewController.m in Sources */,
 				AB6D49A21BAD181900C97E92 /* CLFile.m in Sources */,
+				ABF4722C1BC4950200B1A2FC /* CLFilterCell.m in Sources */,
 				AB6D49A31BAD181900C97E92 /* CLWebViewController.m in Sources */,
 				AB6D49A41BAD181900C97E92 /* CLFilePropertiesViewController.mm in Sources */,
 				AB6D49A51BAD181900C97E92 /* bzlib.c in Sources */,
@@ -1052,6 +1206,7 @@
 				AB6D49B51BAD181900C97E92 /* ACAlertView.m in Sources */,
 				AB6D49B61BAD181900C97E92 /* CLFileTransfer.m in Sources */,
 				AB6D49B71BAD181900C97E92 /* CLDirectoryViewController.m in Sources */,
+				AB8B0CA61BD1F1AA00EAD62E /* CLZipViewController.m in Sources */,
 				AB6D49B81BAD181900C97E92 /* huffman.c in Sources */,
 				AB6D49B91BAD181900C97E92 /* ACUnzip.m in Sources */,
 				AB6D49BA1BAD181900C97E92 /* bzip2recover.c in Sources */,
@@ -1060,6 +1215,7 @@
 				AB6D49BD1BAD181900C97E92 /* NSFileManager+Tar.m in Sources */,
 				AB6D49BE1BAD181900C97E92 /* ACCircularProgressView.m in Sources */,
 				AB6D49BF1BAD181900C97E92 /* decompress.c in Sources */,
+				AB4AF6321BB8266F0043F0B7 /* CLFileDisplayViewController.m in Sources */,
 				AB6D49C01BAD181900C97E92 /* NSFileManager+CLFile.m in Sources */,
 				AB6D49C11BAD181900C97E92 /* CLSettingsViewController.m in Sources */,
 				AB6D49C21BAD181900C97E92 /* bzip2.c in Sources */,

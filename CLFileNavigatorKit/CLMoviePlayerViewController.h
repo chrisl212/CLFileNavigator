@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLFileDisplayViewController.h"
 
 @class CLFile;
 
-@interface CLMoviePlayerViewController : UIViewController
+@interface CLMoviePlayerViewController : CLFileDisplayViewController
 
 - (id)initWithFilePath:(NSString *)path;
 - (id)initWithFile:(CLFile *)file;

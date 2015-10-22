@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLFileDisplayViewController.h"
+#import "CLImageFilterViewController.h"
 
 FOUNDATION_EXPORT NSString *const CLImageFileNameKey;
 FOUNDATION_EXPORT NSString *const CLImageImageKey;
 
-@interface CLImageViewController : UIViewController <UIScrollViewDelegate>
+@interface CLImageViewController : CLFileDisplayViewController <UIScrollViewDelegate, CLImageFilterViewControllerDelegate>
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;

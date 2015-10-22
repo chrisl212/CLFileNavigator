@@ -134,6 +134,21 @@
     return fileType;
 }
 
+- (void)setDirectory:(BOOL)directory
+{
+    _directory = directory;
+    if (directory)
+        fileType = CLFileTypeDirectory;
+    else
+        fileType = [self fileTypeForExtension:self.fileExtension];
+}
+
+- (void)setFileExtension:(NSString *)fileExtension
+{
+    _fileExtension = fileExtension;
+    fileType = [self fileTypeForExtension:fileExtension];
+}
+
 - (NSArray *)directoryContents
 {
     if (!self.isDirectory)
@@ -178,6 +193,11 @@
 - (NSURL *)fileURL
 {
     return [NSURL fileURLWithPath:self.filePath];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"File Name: %@\\nFull Path: %@\\nFile Size: %@\\nIs Directory: %@\\n", self.fileName, self.filePath, self.fileSizeString, (self.isDirectory) ? @"Yes" : @"No"];
 }
 
 @end
